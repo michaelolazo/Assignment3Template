@@ -32,11 +32,13 @@ CREATE TABLE tbProduct -- there are many products in a single category
 			 
 )
 CREATE TABLE tbOrder -- an order happens on a date by a customer
-(			OrderID int identity(1,1) primary key
+(			OrderID int identity(1,1) primary key,
+			OrderDate DATE
 			
 )
 CREATE TABLE tbOrderDetail -- there can be many details in an order, each detail contains the product purchased, the price paid at the time for the product multiplied by the quantity
 (			OrderDetailID int identity(1,1) primary key,
+			ProductID int foreign key references tbProduct(ID)
 			
 )
 INSERT INTO tbCustomer(UserName,Password,AcessLevel) VALUES('rjayop','rjaypassword','0'),
