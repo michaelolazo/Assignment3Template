@@ -27,6 +27,7 @@ CREATE TABLE tbCustomer -- AccessLevel is a BIT, 1 is admin, 0 is not an admin
 CREATE TABLE tbCategory
 (			CategoryID INT IDENTITY(1,1) PRIMARY KEY,
 			Name VARCHAR(MAX),
+			--CustomerID INT FOREIGN KEY REFERENCES tbCustomer(CustomerID),
 			ImagePath VARCHAR(MAX)
 )
 CREATE TABLE tbProduct -- there are many products in a single category
@@ -48,16 +49,18 @@ CREATE TABLE tbOrderDetail -- there can be many details in an order, each detail
 			CustomerID int foreign key references tbCustomer(CustomerID)
 			
 )
-INSERT INTO tbCustomer(UserName,Password,AcessLevel) VALUES('rjayop','rjaypassword','0'),
-																													 ('omar','omarpassword','0'),
-																													 ('andrew','andrewpassword','0'),
-																													 ('josh','joshpassword','0'),
-																													 ('michaeladmin','adminpassword','1')  
+INSERT INTO tbCustomer(FirstName,LastName,Address,City,PhoneNumber,UserName,Password,AcessLevel) VALUES('rj','candoy','somewhere on manitoba','WPG','204','rjayop','rjaypassword','0'),
+																													 ('omar','something','somewhere here','WPG','204','omar','omarpassword','0'),
+																													 ('andrew','leake','somewhere on portage','WPG','204','andrew','andrewpassword','0'),
+																													 ('joshua','caniouras','somewhere in st vital','WPG','204','josh','joshpassword','0'),
+																													 ('michael','olazo','somewhere in garden grove','WPG','204','michaeladmin','adminpassword','1')  
 																														-- 5, 1 admin, 4 non-admins
-																														select * from tbCustomer
+																														
 
---INSERT INTO tbCategory -- 4 categories
-
+INSERT INTO tbCategory(Name,ImagePath) VALUES
+														('Grounded','grounded.jpg'),('Flying','Flying.jpg'),('Mage','mage.png'),('Doug/Boss','dougboss.jpg') -- 4 categories
+														select * from tbCustomer
+														select * from tbCategory
 --INSERT INTO tbProduct  -- 6 products in category one, 3 products in category two, 1 in category three
 
 --INSERT INTO tbOrder    -- 3 example orders from the non-admins

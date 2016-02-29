@@ -66,6 +66,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\dougboss.jpg" />
+    <Content Include="Images\Flying.jpg" />
+    <Content Include="Images\grounded.jpg" />
+    <Content Include="Images\mage.png" />
     <Content Include="packages.config" />
     <Content Include="MainMaster.Master" />
     <None Include="Web.Debug.config">
@@ -137,6 +141,7 @@
       <Name>A3ClassLibrary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
