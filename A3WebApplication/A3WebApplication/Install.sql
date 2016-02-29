@@ -67,7 +67,13 @@ INSERT INTO tbCategory(Name,ImagePath) VALUES
 INSERT INTO tbProduct(Name,Price,PrimaryImagePath,CategoryID) VALUES('Slime','15','groundedslime.jpg',1),
 																																	('Mushroom','20','groundedmushroom.png-c200',1),
 																																	('Pig','10','groundedpig.png',1),
-																																	('Zakum','200','groundedzakum.jpg',1)
+																																	('Zakum','200','groundedzakum.jpg',1),
+																																	('Pianus Fish Thing','1000','groundedpianus',1),
+																																	('Alf','9000','groundedalf.jpg',1),
+																																	('Pidgey','300','flyingpidgey.jpg',2),
+																																	('Noctowl','400','flyingowl.png',2),
+																																	('Super Flying OP Monster a.k.a Ice Moltres','1','flyingice.jpg',2),
+																																	('Best Mage','3','magepicture.jpg',3)
 
 																																	  -- 6 products in category one, 3 products in category two, 1 in category three
 

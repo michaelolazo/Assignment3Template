@@ -68,11 +68,17 @@
   <ItemGroup>
     <Content Include="Images\dougboss.jpg" />
     <Content Include="Images\Flying.jpg" />
+    <Content Include="Images\flyingice.jpg" />
+    <Content Include="Images\flyingowl.png" />
+    <Content Include="Images\flyingpidgey.jpg" />
     <Content Include="Images\grounded.jpg" />
+    <Content Include="Images\groundedalf.jpg" />
+    <Content Include="Images\groundedpianus.png" />
     <Content Include="Images\groundedpig.png" />
     <Content Include="Images\groundedslime.jpg" />
     <Content Include="Images\groundedzakum.jpg" />
     <Content Include="Images\mage.png" />
+    <Content Include="Images\magepicture.jpg" />
     <Content Include="packages.config" />
     <Content Include="MainMaster.Master" />
     <Content Include="Images\groundedmushroom.png-c200" />
