@@ -69,9 +69,13 @@
     <Content Include="Images\dougboss.jpg" />
     <Content Include="Images\Flying.jpg" />
     <Content Include="Images\grounded.jpg" />
+    <Content Include="Images\groundedpig.png" />
+    <Content Include="Images\groundedslime.jpg" />
+    <Content Include="Images\groundedzakum.jpg" />
     <Content Include="Images\mage.png" />
     <Content Include="packages.config" />
     <Content Include="MainMaster.Master" />
+    <Content Include="Images\groundedmushroom.png-c200" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

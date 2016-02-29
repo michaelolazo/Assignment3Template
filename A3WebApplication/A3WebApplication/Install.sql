@@ -40,7 +40,7 @@ CREATE TABLE tbProduct -- there are many products in a single category
 )
 CREATE TABLE tbOrder -- an order happens on a date by a customer
 (			OrderID int identity(1,1) primary key,
-			OrderDate DATE
+			--OrderDate DATE
 			
 )
 CREATE TABLE tbOrderDetail -- there can be many details in an order, each detail contains the product purchased, the price paid at the time for the product multiplied by the quantity
@@ -49,7 +49,8 @@ CREATE TABLE tbOrderDetail -- there can be many details in an order, each detail
 			CustomerID int foreign key references tbCustomer(CustomerID)
 			
 )
-INSERT INTO tbCustomer(FirstName,LastName,Address,City,PhoneNumber,UserName,Password,AcessLevel) VALUES('rj','candoy','somewhere on manitoba','WPG','204','rjayop','rjaypassword','0'),
+INSERT INTO tbCustomer(FirstName,LastName,Address,City,PhoneNumber,UserName,Password,AcessLevel) VALUES
+																													 ('rj','candoy','somewhere on manitoba','WPG','204','rjayop','rjaypassword','0'),
 																													 ('omar','something','somewhere here','WPG','204','omar','omarpassword','0'),
 																													 ('andrew','leake','somewhere on portage','WPG','204','andrew','andrewpassword','0'),
 																													 ('joshua','caniouras','somewhere in st vital','WPG','204','josh','joshpassword','0'),
@@ -58,11 +59,21 @@ INSERT INTO tbCustomer(FirstName,LastName,Address,City,PhoneNumber,UserName,Pass
 																														
 
 INSERT INTO tbCategory(Name,ImagePath) VALUES
-														('Grounded','grounded.jpg'),('Flying','Flying.jpg'),('Mage','mage.png'),('Doug/Boss','dougboss.jpg') -- 4 categories
-														select * from tbCustomer
-														select * from tbCategory
---INSERT INTO tbProduct  -- 6 products in category one, 3 products in category two, 1 in category three
+																													('Grounded','grounded.jpg'),
+																													('Flying','Flying.jpg'),
+																													('Mage','mage.png'),
+																													('Doug/Boss','dougboss.jpg') -- 4 categories
 
+INSERT INTO tbProduct(Name,Price,PrimaryImagePath,CategoryID) VALUES('Slime','15','groundedslime.jpg',1),
+																																	('Mushroom','20','groundedmushroom.png-c200',1),
+																																	('Pig','10','groundedpig.png',1),
+																																	('Zakum','200','groundedzakum.jpg',1)
+
+																																	  -- 6 products in category one, 3 products in category two, 1 in category three
+
+	select * from tbCustomer
+	select * from tbCategory
+	select * from tbProduct
 --INSERT INTO tbOrder    -- 3 example orders from the non-admins
 
 --INSERT INTO tbOrderDetail -- one item on the first order, 3 items on the second order, 2 items on the third order
