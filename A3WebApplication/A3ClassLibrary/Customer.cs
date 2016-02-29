@@ -31,7 +31,7 @@ namespace A3ClassLibrary
             d.AddParam("Password", password);
             DataSet ds = d.ExecuteProcedure("spLogin");
 
-            iif (ds.Tables[0].Rows.Count == 1)
+            if (ds.Tables[0].Rows.Count == 1)
             {
                 DataRow r = ds.Tables[0].Rows[0];
                 result = new Customer();
