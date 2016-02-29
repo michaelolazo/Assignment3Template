@@ -8,16 +8,53 @@
 -- reports (6 marks)
 
 CREATE TABLE tbCustomer -- AccessLevel is a BIT, 1 is admin, 0 is not an admin
+(			CustomerID int identity(1,1) Primary key,
+			FirstName VARCHAR(MAX),
+			LastName VARCHAR(MAX),
+			Address VARCHAR(MAX),
+			City VARCHAR(MAX),
+			PhoneNumber VARCHAR(MAX),
+			UserName VARCHAR(MAX),
+			Password VARCHAR(MAX),
+			AcessLevel BIT
+)
 CREATE TABLE tbCategory
+(			CategoryID INT IDENTITY(1,1) PRIMARY KEY,
+			Name VARCHAR(MAX),
+			ImagePath VARCHAR(MAX)
+)
 CREATE TABLE tbProduct -- there are many products in a single category
+(			 ProductID INT IDENTITY(1,1) PRIMARY KEY,
+			 Name VARCHAR(MAX),
+			 Price INT,
+			 PrimaryImagePath VARCHAR(MAX),
+			 CategoryID INT FOREIGN KEY REFERENCES tbCategory(ID)
+			 
+)
 CREATE TABLE tbOrder -- an order happens on a date by a customer
+(			OrderID int identity(1,1) primary key
+			
+)
 CREATE TABLE tbOrderDetail -- there can be many details in an order, each detail contains the product purchased, the price paid at the time for the product multiplied by the quantity
+(			OrderDetailID int identity(1,1) primary key,
+			
+)
+INSERT INTO tbCustomer(UserName,Password,AcessLevel) VALUES('rjayop','rjaypassword','0'),
+																													 ('omar','omarpassword','0'),
+																													 ('andrew','andrewpassword','0'),
+																													 ('josh','joshpassword','0'),
+																													 ('michaeladmin','adminpassword','1')  
+																														-- 5, 1 admin, 4 non-admins
 
-INSERT INTO tbCustomer -- 5, 1 admin, 4 non-admins
+
 INSERT INTO tbCategory -- 4 categories
+
 INSERT INTO tbProduct  -- 6 products in category one, 3 products in category two, 1 in category three
+
 INSERT INTO tbOrder    -- 3 example orders from the non-admins
+
 INSERT INTO tbOrderDetail -- one item on the first order, 3 items on the second order, 2 items on the third order
+
 
 -- NOTE: All Insert procs *MUST* return the new identity number of the primary key.
 -- Example: if you use spInsertCategory after there are 4 categories, it should return the value 5.
