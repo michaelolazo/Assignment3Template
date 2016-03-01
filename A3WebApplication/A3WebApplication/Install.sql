@@ -122,21 +122,56 @@ GO
 --spInsertCategory
 CREATE PROC spInsertCategory
 (		@Name VARCHAR(MAX),
-		@ImagePath VARCHAR(MAX),
-		@CategoryID INT =null
-)
+		@ImagePath VARCHAR(MAX)
+	)
 AS BEGIN
-		INSERT INTO tbCategory(Name,ImagePath,CategoryID)
-		VALUES(@Name,@ImagePath,@CategoryID)
+		INSERT INTO tbCategory(Name,ImagePath)
+		VALUES(@Name,@ImagePath)
+		SELECT SCOPE_IDENTITY() AS [CategoryID]
 END
 go
-exec spInsertCategory @Name='new',@ImagePath='new'
-GO
 --spDeleteCategory
+CREATE PROC spDeleteCategory
+(
+		@CategoryID INT
+)
+AS BEGIN
+		DELETE FROM tbCategory
+		WHERE CategoryID =@CategoryID
+END
 --spUpdateCategory
-
+		--exec spInsertCategory @Name='new',@ImagePath='nothing'
+go
 --spLogin
+CREATE PROC spLogin 
+	(@UserName VARCHAR(MAX),
+	@Password VARCHAR(MAX)
+	 /*,
+	@AcessLevel BIT */
+	)
+
+	AS BEGIN
+				IF EXISTS (SELECT CustomerID FROM tbCustomer
+				WHERE CustomerID =@UserName AND Password = @Password)
+		BEGIN
+				SELECT UserName FROM tbCustomer
+				WHERE UserName = @UserName AND
+				Password= @Password
+END
+		ELSE	
+				SELECT 'bad info' as UserName
+		END
 --spGetCustomerByID
+GO
+CREATE PROC spGetCustomerByID
+( 
+		@CustomerID INT
+)
+AS BEGIN
+		SELECT * FROM tbCustomer
+		WHERE CustomerID =ISNULL(@CustomerID,CustomerID)
+END
+GO
 --spInsertCustomer
 --spDeleteCustomer
 --spUpdateCustomer
