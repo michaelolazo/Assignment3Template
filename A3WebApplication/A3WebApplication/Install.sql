@@ -90,14 +90,16 @@ INSERT INTO tbProduct(Name,Price,PrimaryImagePath,CategoryID)				VALUES('Slime',
 INSERT INTO tbOrder(CustomerID,ProductID,CategoryID) VALUES(2,10,3),(4,8,2),(1,11,4) -- bestmage(cost 3.00)andrew orders =3,noctowl(cost 400.00)omar orders=2,doug(cost 1.00) josh=4
 																																					     -- 3 example orders from the non-admins
 
+
+	INSERT INTO tbOrderDetail(CustomerID,ProductID,CategoryID,Quantity,PricePaid,OrderDate) VALUES(3,1,3,1,3,CURRENT_TIMESTAMP),
+																																													(2,8,2,3,800.00,CURRENT_TIMESTAMP),
+																																													(4,11,4,2,2.00,CURRENT_TIMESTAMP)
+
 	SELECT * FROM tbCustomer
 	SELECT * FROM tbCategory
 	SELECT * FROM tbProduct
 	SELECT * FROM tbOrder
 	SELECT * FROM tbOrderDetail
-	INSERT INTO tbOrderDetail(CustomerID,ProductID,CategoryID,Quantity,PricePaid,OrderDate) VALUES(3,1,3,1,3,CURRENT_TIMESTAMP),
-																																													(2,8,2,3,800.00,CURRENT_TIMESTAMP),
-																																													(4,11,4,2,2.00,CURRENT_TIMESTAMP)
 	 -- one item on the first order, 3 items on the second order, 2 items on the third order
 
 
@@ -106,7 +108,30 @@ INSERT INTO tbOrder(CustomerID,ProductID,CategoryID) VALUES(2,10,3),(4,8,2),(1,1
 ---- If a procedure says: ByID, it means return ALL rows in the table if an ID is not supplied (ISNULL)
 
 --spGetCategoryByID
+GO
+CREATE PROC spGetCategoryByID
+(@CategoryID INT =null
+)
+AS BEGIN
+			SELECT * FROM tbCategory 
+			WHERE CategoryID =ISNULL(@CategoryID,CategoryID)
+END
+
+--EXEC spGetCategoryByID
+GO
 --spInsertCategory
+CREATE PROC spInsertCategory
+(		@Name VARCHAR(MAX),
+		@ImagePath VARCHAR(MAX),
+		@CategoryID INT =null
+)
+AS BEGIN
+		INSERT INTO tbCategory(Name,ImagePath,CategoryID)
+		VALUES(@Name,@ImagePath,@CategoryID)
+END
+go
+exec spInsertCategory @Name='new',@ImagePath='new'
+GO
 --spDeleteCategory
 --spUpdateCategory
 
