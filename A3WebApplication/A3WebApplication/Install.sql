@@ -159,7 +159,7 @@ CREATE PROC spLogin
 				Password= @Password
 END
 		ELSE	
-				SELECT 'bad info' as UserName
+				SELECT 'Incorrect Login Info fam' as UserName
 		END
 --spGetCustomerByID
 GO
@@ -173,6 +173,20 @@ AS BEGIN
 END
 GO
 --spInsertCustomer
+CREATE PROC spInsertCustomer
+(		@FirstName VARCHAR(MAX),
+		@LastName VARCHAR(MAX),
+		@Address VARCHAR(MAX),
+		@City VARCHAR(MAX),
+		@PhoneNumber VARCHAR(MAX),
+		@UserName VARCHAR(MAX),
+		@Password VARCHAR(MAX)
+	)
+AS BEGIN
+		INSERT INTO tbCustomer(FirstName,LastName,Address,City,PhoneNumber,UserName,Password)
+		VALUES(@FirstName,@LastName,@Address,@City,@PhoneNumber,@UserName,@Password)
+		--SELECT SCOPE_IDENTITY() AS [CategoryID]
+END
 --spDeleteCustomer
 --spUpdateCustomer
 
