@@ -22,7 +22,7 @@ namespace A3ClassLibrary
         // BONUS 1 MARK: write method which impliments spInsertCategory
         // BONUS 1 MARK: write method which impliments spDeleteCategory
         // BONUS 1 MARK: write method which impliments spUpdateCategory
-
+ 
         public static List<Category> GetAllCategories()
         {
             List<Category> resultList = new List<Category>();

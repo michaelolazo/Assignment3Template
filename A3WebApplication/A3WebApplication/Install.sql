@@ -234,11 +234,71 @@ END
 
 
 --spGetProductsByCategoryID
---spGetProductByID
---spInsertProduct
---spDeleteProduct
---spUpdateProduct
+GO
+CREATE PROC spGetProductsByCategoryID
+(
+		@ProductID int
+)
+AS BEGIN
+			SELECT * FROM tbProdcuts
+			 WHERE ProductID = @ProductID
+END
 
+--spGetProductByID
+GO
+CREATE PROC spGetProductByID
+(		
+		@ProductID INT
+)
+AS BEGIN
+			SELECT * FROM tbProduct 
+			WHERE ProductID=@ProductID
+END
+GO
+--spInsertProduct
+
+CREATE PROC spInsertProduct
+(
+@Name VARCHAR(MAX),
+@Price DECIMAL(10,2),
+@PrimaryImagePath VARCHAR(MAX)=NULL
+--@CategoryID INT=NULL
+)
+
+AS 
+BEGIN
+		INSERT INTO tbProduct(Name,Price, PrimaryImagePath) 	
+		VALUES (@Name,@Price,@PrimaryImagePath)
+END
+--spDeleteProduct
+
+go
+CREATE PROC spDeleteProduct
+(
+			@ProductID INT
+)
+AS BEGIN
+				DELETE  FROM tbProduct 
+				WHERE ProductID =@ProductID
+END
+GO
+--spUpdateProduct
+CREATE PROC spUpdateProduct
+(
+ @ProductID INT,
+ @Name VARCHAR(MAX),
+ @Price DECIMAL(10,2),
+ @PrimaryImagePath VARCHAR(MAX)=null
+)
+
+AS 
+BEGIN
+		UPDATE tbProduct
+		SET Name = @Name,
+		Price =@Price,
+		@PrimaryImagePath = @PrimaryImagePath
+		WHERE ProductID = @ProductID
+END
 --spGetOrderByID
 --spInsertOrder
 --spDeleteOrder
