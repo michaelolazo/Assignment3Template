@@ -140,7 +140,20 @@ AS BEGIN
 		WHERE CategoryID =@CategoryID
 END
 --spUpdateCategory
-		--exec spInsertCategory @Name='new',@ImagePath='nothing'
+GO
+		CREATE PROC spUpdateCategory
+(
+			@CategoryID INT=null,
+			@Name VARCHAR(MAX),
+			@ImagePath VARCHAR(MAX) = NULL
+)
+
+AS BEGIN 
+		UPDATE tbCategory
+		SET Name=@Name,
+		ImagePath=@ImagePath
+END
+
 go
 --spLogin
 CREATE PROC spLogin 
@@ -188,7 +201,37 @@ AS BEGIN
 		--SELECT SCOPE_IDENTITY() AS [CategoryID]
 END
 --spDeleteCustomer
+GO
+CREATE PROC spDeleteCustomer
+( 
+			@CustomerID INT 
+)
+AS BEGIN
+			DELETE FROM tbCustomer
+			WHERE CustomerID=@CustomerID
+
+END
 --spUpdateCustomer
+GO
+CREATE PROC spUpdateCustomer
+(
+			@CustomerID INT = NULL,
+			@FirstName VARCHAR(MAX),
+			@LastName VARCHAR(MAX),
+			@Address VARCHAR(MAX),
+			@City VARCHAR(MAX),
+			@PhoneNumber VARCHAR(MAX),
+			@UserName VARCHAR(MAX),
+			@Password VARCHAR(MAX)
+)
+
+AS BEGIN 
+		UPDATE tbCustomer
+		SET FirstName=@FirstName,	LastName =@LastName
+		,Address=@Address,City=@City,PhoneNumber=@PhoneNumber,
+		UserName=@UserName,Password=@Password
+END
+
 
 --spGetProductsByCategoryID
 --spGetProductByID
