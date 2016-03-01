@@ -94,12 +94,12 @@ INSERT INTO tbOrder(CustomerID,ProductID,CategoryID) VALUES(2,10,3),(4,8,2),(1,1
 	SELECT * FROM tbCategory
 	SELECT * FROM tbProduct
 	SELECT * FROM tbOrder
-		
+	SELECT * FROM tbOrderDetail
 	INSERT INTO tbOrderDetail(CustomerID,ProductID,CategoryID,Quantity,PricePaid,OrderDate) VALUES(3,1,3,1,3,CURRENT_TIMESTAMP),
 																																													(2,8,2,3,800.00,CURRENT_TIMESTAMP),
 																																													(4,11,4,2,2.00,CURRENT_TIMESTAMP)
 	 -- one item on the first order, 3 items on the second order, 2 items on the third order
-	select * from tbOrderDetail
+
 
 ---- NOTE: All Insert procs *MUST* return the new identity number of the primary key.
 ---- Example: if you use spInsertCategory after there are 4 categories, it should return the value 5.
