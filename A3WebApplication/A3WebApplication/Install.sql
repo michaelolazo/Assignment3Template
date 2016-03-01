@@ -300,12 +300,51 @@ BEGIN
 		WHERE ProductID = @ProductID
 END
 --spGetOrderByID
+GO 
+CREATE PROC spGetOrderByID
+(
+			@OrderID INT
+)
+AS BEGIN
+		SELECT * FROM tbOrder
+		WHERE OrderID = ISNULL(@OrderID,OrderID)
+END
 --spInsertOrder
+go
+--CREATE PROC spInsertOrder  -- come back to this and make another column to order from
+--(
+			
+--)
+--AS 
+--BEGIN
+--		INSERT INTO tbCategory(Name) 	
+--		VALUES (@Name)
+go
 --spDeleteOrder
+CREATE PROC spDeleteOrder
+(
+			@OrderID INT
+)
+AS BEGIN
+			DELETE FROM tbOrder
+			WHERE OrderID=@OrderID
+END
 --spUpdateOrder
 
 --spGetOrderDetailByID
+GO
+CREATE PROC spGetOrderDetailByID
+(
+			@OrderDetailID INT
+)
+AS BEGIN
+			SELECT * FROM tbOrderDetail
+			WHERE OrderDetailID =ISNULL(@OrderDetailID,OrderDetailID)
+END
 --spInsertOrderDetail
+GO
+CREATE PROC spInsertOrderDetail
+
 --spDeleteOrderDetail
 --spUpdateOrderDetail
 --spGetOrderAndDetailsByOrderID -- Show all Details based on the OrderID

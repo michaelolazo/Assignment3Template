@@ -79,6 +79,7 @@
     <Content Include="Images\groundedzakum.jpg" />
     <Content Include="Images\mage.png" />
     <Content Include="Images\magepicture.jpg" />
+    <Content Include="Images\noimage.gif" />
     <Content Include="packages.config" />
     <Content Include="MainMaster.Master" />
     <Content Include="Images\groundedmushroom.png-c200" />
