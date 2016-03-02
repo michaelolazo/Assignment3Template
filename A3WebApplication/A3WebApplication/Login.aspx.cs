@@ -4,11 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using DAL_Project;
+using System.Configuration;
+using System.Data;
+using A3ClassLibrary;
 namespace A3WebApplication
 {
     public partial class Login : System.Web.UI.Page
     {
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             // TODO: must use the Security Class to login and to check for access level (admin or not)
@@ -16,7 +20,7 @@ namespace A3WebApplication
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-
+           
         }
     }
 }
