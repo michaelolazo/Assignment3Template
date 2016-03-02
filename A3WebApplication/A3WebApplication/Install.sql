@@ -160,20 +160,20 @@ go
 CREATE PROC spLogin 
 	(@UserName VARCHAR(MAX),
 	@Password VARCHAR(MAX)
-	 /*,
-	@AcessLevel BIT */
+	 ,
+	@AcessLevel BIT =null
 	)
 
 	AS BEGIN
-				IF EXISTS (SELECT CustomerID FROM tbCustomer
-				WHERE CustomerID =@UserName AND Password = @Password)
+				IF EXISTS (SELECT UserName FROM tbCustomer
+				WHERE UserName =@UserName AND Password = @Password AND AcessLevel =@AcessLevel)
 		BEGIN
 				SELECT UserName FROM tbCustomer
 				WHERE UserName = @UserName AND
-				Password= @Password
+				Password= @Password  AND AcessLevel =@AcessLevel
 END
 		ELSE	
-				SELECT 'Incorrect Login Info fam' as UserName
+				SELECT 'Incorrect Login Info fam' as UserNameugs 
 		END
 --spGetCustomerByID
 GO
