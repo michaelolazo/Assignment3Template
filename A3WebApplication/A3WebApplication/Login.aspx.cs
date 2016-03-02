@@ -13,5 +13,10 @@ namespace A3WebApplication
         {
             // TODO: must use the Security Class to login and to check for access level (admin or not)
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -344,13 +344,61 @@ AS BEGIN
 END
 --spInsertOrderDetail
 GO
---CREATE PROC spInsertOrderDetail
+CREATE PROC spInsertOrderDetail
+(
+		@Quantity INT,
+		@OrderDate varchar(max),
+		@ProductID INT,
+		@CustomerID INT,
+		@CategoryID INT,
+		@OrderID INT
+)
 
+AS BEGIN
+		INSERT INTO tbOrderDetails(Quantity,OrderDate,ProductID,CustomerID,CategoryID,OrderID)
+		VALUES(@Quantity,@OrderDate,@ProductID,@CustomerID,@CategoryID,@OrderID)
+		SELECT SCOPE_IDENTITY() AS [OrderDetailsID]
+END
 --spDeleteOrderDetail
+GO
+CREATE PROC spDeleteOrderDetail
+(
+			@OrderDetailID INT
+)
+AS BEGIN 
+			DELETE FROM tbOrderDetail
+			WHERE OrderDetailID=@OrderDetailID
+END
 --spUpdateOrderDetail
+GO
+CREATE PROC spUpdateOrderDetail
+(
+		@Quantity INT,
+		@PricePaid INT,
+		@OrderDate VARCHAR(MAX),
+		@ProductID INT,
+		@CustomerID INT,
+		@CategoryID INT,
+		@OrderID INT
+)
+
+AS BEGIN
+			UPDATE tbOrderDetail
+			SET Quantity=@Quantity ,PricePaid=@PricePaid,OrderDate=@OrderDate,
+				   ProductID=@ProductID,CustomerID=@CustomerID,CategoryID=@CategoryID,OrderID=@OrderID
+END
+
 --spGetOrderAndDetailsByOrderID -- Show all Details based on the OrderID
-
-
+GO
+CREATE PROC spGetOrderAndDetailsByOrderID
+(
+			@OrderID INT,
+			@OrderDetailID INT
+)
+AS BEGIN
+		SELECT * FROM tbOrderDetail
+		
+END
 ---- Create these reports:
 --1. Top 3 Customers for TOTAL spent among all orders
 --2. Show each category and how many products are available in each
