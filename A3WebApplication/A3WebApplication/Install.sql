@@ -55,7 +55,8 @@ CREATE TABLE tbOrderDetail -- there can be many details in an order, each detail
 			OrderDate DATE,
 			ProductID int foreign key references tbProduct(ProductID),
 			CustomerID int foreign key references tbCustomer(CustomerID),
-			CategoryID int foreign key references tbCategory(CategoryID)
+			CategoryID int foreign key references tbCategory(CategoryID),
+			OrderID INT FOREIGN KEY REFERENCES tbOrder(OrderID)
 )
 INSERT INTO tbCustomer(FirstName,LastName,Address,City,PhoneNumber,UserName,Password,AcessLevel) VALUES
 																													 ('rj','candoy','somewhere on manitoba','WPG','204','rjayop','rjaypassword','0'),
@@ -91,9 +92,9 @@ INSERT INTO tbOrder(CustomerID,ProductID,CategoryID) VALUES(2,10,3),(4,8,2),(1,1
 																																					     -- 3 example orders from the non-admins
 
 
-	INSERT INTO tbOrderDetail(CustomerID,ProductID,CategoryID,Quantity,PricePaid,OrderDate) VALUES(3,1,3,1,3,CURRENT_TIMESTAMP),
-																																													(2,8,2,3,800.00,CURRENT_TIMESTAMP),
-																																													(4,11,4,2,2.00,CURRENT_TIMESTAMP)
+	INSERT INTO tbOrderDetail(CustomerID,ProductID,CategoryID,Quantity,PricePaid,OrderDate,OrderID) VALUES(3,1,3,1,3,CURRENT_TIMESTAMP,1),
+																																													(2,8,2,3,800.00,CURRENT_TIMESTAMP,2),
+																																													(4,11,4,2,2.00,CURRENT_TIMESTAMP,3)
 
 	SELECT * FROM tbCustomer
 	SELECT * FROM tbCategory
@@ -343,7 +344,7 @@ AS BEGIN
 END
 --spInsertOrderDetail
 GO
-CREATE PROC spInsertOrderDetail
+--CREATE PROC spInsertOrderDetail
 
 --spDeleteOrderDetail
 --spUpdateOrderDetail
