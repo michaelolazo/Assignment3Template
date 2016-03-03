@@ -30,7 +30,7 @@ namespace A3WebApplication
         {
             try
             {
-                Security.Login(tbUsername.Text, tbPassword.Text);
+                Security.Login(tbUsername.Text,tbPassword.Text);
                 Response.Redirect("AdminPage.aspx");
             }
             catch (Exception)

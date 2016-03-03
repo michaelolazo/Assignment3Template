@@ -97,6 +97,9 @@
     <Content Include="Install.sql" />
     <Content Include="Login.aspx" />
     <Content Include="ProductsPage.aspx" />
+    <Content Include="Styles\default.css" />
+    <Content Include="Styles\fonts.css" />
+    <Content Include="Styles\style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -156,7 +159,9 @@
       <Name>DAL_Project</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Styles\js\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -12,7 +12,7 @@ namespace A3WebApplication
 {
     public partial class AdminPage : System.Web.UI.Page
     {
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -31,11 +31,19 @@ namespace A3WebApplication
         protected void gvAdminProducts_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             DAL myd = new DAL(ConfigurationManager.ConnectionStrings["dbA3ConnStr"].ConnectionString);
-            string ProductID = gvAdminProducts.SelectedValue.ToString();
-            myd.AddParam("ProductID", ProductID);
-            myd.ExecuteProcedure("spDeleteProduct");
-            gvAdminProducts.DataBind();
-            LoadProducts();
+            if (gvAdminProducts.SelectedDataKey != null)
+            {
+                string ProductID = gvAdminProducts.SelectedValue.ToString();
+                myd.AddParam("ProductID", ProductID);
+                myd.ExecuteProcedure("spDeleteProduct");   // this is where the problem of not being able to delete is
+                gvAdminProducts.DataBind();
+                LoadProducts();
+            }
+            else
+            {
+                    
+            }
+
             //gvAdminProducts.SelectedIndex = Convert.ToInt32(e.CommandArguement.ToString());
             //string ID = gvAdminProducts.SelectedValue.ToString();
 
@@ -43,17 +51,17 @@ namespace A3WebApplication
 
         protected void gvAdminProducts_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            gvAdminProducts.SelectedIndex = Convert.ToInt32(e.CommandArgument.ToString());
-            string ProductID = gvAdminProducts.SelectedValue.ToString();
-            switch (e.CommandName)
-            {
-                case "delete":
-                    DeleteProducts(ProductID);
-                    LoadProducts();
-                    break;
-                default:
-                    break;
-            }
+            //gvAdminProducts.SelectedIndex = Convert.ToInt32(e.CommandArgument.ToString());
+            //string ProductID = gvAdminProducts.SelectedValue.ToString();
+            //switch (e.CommandName)
+            //{
+            //    case "delete":
+            //        DeleteProducts(ProductID);
+            //        LoadProducts();
+            //        break;
+            //    default:
+            //        break;
+            //}
         }
 
         private void DeleteProducts(string ProductID)
