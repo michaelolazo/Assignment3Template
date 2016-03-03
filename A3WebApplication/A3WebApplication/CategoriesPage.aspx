@@ -4,11 +4,11 @@
         <ItemTemplate>
             <div class="Category" runat="server">
 
-                <b>CategoryID</b> <%#Eval("CategoryID") %>
-                <b>Name</b> <%#Eval("Name") %>
+                <b>CategoryID</b> <%#Eval("CategoryID") %><br />
+                <b>Name</b> <%#Eval("Name") %><br />
                 <b>ImagePath</b> <%#Eval("ImagePath") %>
                 <asp:Image  ID="imgCategory" ImageUrl='<%#Eval("ImagePath") %>' runat="server" />
-            </div>
+            </div>  
         </ItemTemplate>
     </asp:DataList>
 

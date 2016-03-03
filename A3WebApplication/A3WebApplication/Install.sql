@@ -22,7 +22,7 @@ CREATE TABLE tbCustomer -- AccessLevel is a BIT, 1 is admin, 0 is not an admin
 			PhoneNumber VARCHAR(MAX),
 			UserName VARCHAR(MAX),
 			Password VARCHAR(MAX),
-			AcessLevel BIT
+			AccessLevel BIT
 )
 CREATE TABLE tbCategory
 (			CategoryID INT IDENTITY(1,1) PRIMARY KEY,
@@ -58,7 +58,7 @@ CREATE TABLE tbOrderDetail -- there can be many details in an order, each detail
 			CategoryID int foreign key references tbCategory(CategoryID),
 			OrderID INT FOREIGN KEY REFERENCES tbOrder(OrderID)
 )
-INSERT INTO tbCustomer(FirstName,LastName,Address,City,PhoneNumber,UserName,Password,AcessLevel) VALUES
+INSERT INTO tbCustomer(FirstName,LastName,Address,City,PhoneNumber,UserName,Password,AccessLevel) VALUES
 																													 ('rj','candoy','somewhere on manitoba','WPG','204','rjayop','rjaypassword','0'),
 																													 ('omar','something','somewhere here','WPG','204','omar','omarpassword','0'),
 																													 ('andrew','leake','somewhere on portage','WPG','204','andrew','andrewpassword','0'),
@@ -160,23 +160,16 @@ go
 CREATE PROC spLogin 
 	(@UserName VARCHAR(MAX),
 	@Password VARCHAR(MAX)
-	 ,
-	@AcessLevel BIT =null
 	)
 
 	AS BEGIN
-				IF EXISTS (SELECT UserName FROM tbCustomer
-				WHERE UserName =@UserName AND Password = @Password AND AcessLevel =@AcessLevel)
-		BEGIN
-				SELECT UserName FROM tbCustomer
+		
+				SELECT * FROM tbCustomer
 				WHERE UserName = @UserName AND
-				Password= @Password  AND AcessLevel =@AcessLevel
+				Password= @Password 
 END
-		ELSE	
-				SELECT 'Incorrect Login Info fam' as UserNameugs 
-		END
 --spGetCustomerByID
-GO
+go
 CREATE PROC spGetCustomerByID
 ( 
 		@CustomerID INT = null

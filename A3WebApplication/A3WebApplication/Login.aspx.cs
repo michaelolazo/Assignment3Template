@@ -15,14 +15,7 @@ namespace A3WebApplication
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Security.IsCustomerAdmin())   // since this is a bool returns true and cheks if customer is admin if it checks out it goes to admin page
-            {
-                Response.Redirect("AdminPage.aspx");  // the redirect if customer is able to log into the page as admin 
-            }
-            else if (!Security.IsCustomerAdmin() && Security.IsCustomerLoggedIn()) // this checks if custoemr is an admin and if customer is already logged in if returned true redirects to the categories page
-            {
-                Response.Redirect("Categories.aspx");
-            }
+
 
         }
 
@@ -30,17 +23,23 @@ namespace A3WebApplication
         {
             try
             {
-                Security.Login(tbUsername.Text,tbPassword.Text);
-                Response.Redirect("AdminPage.aspx");
+                Security.Login(tbUsername.Text,tbPassword.Text);  // the security class runs the login method which takes the two strings > username password
+                if (Security.IsCustomerAdmin())   // since this is a bool returns true and cheks if customer is admin if it checks out it goes to admin page
+                {
+                    Response.Redirect("AdminPage.aspx");  // the redirect if customer is able to log into the page as admin 
+                }
+                else  // this checks if custoemr is an admin and if customer is already logged in if returned true redirects to the categories page
+                {
+                    Response.Redirect("CategoriesPage.aspx");
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 lblMessage.Visible = true;
-                lblMessage.Text = "Welcome admin";
+                lblMessage.Text = "wrong information, try again pls";   // no matter what to log in this always comes up
 
             }
-            lblMessage.Visible = true;
-            lblMessage.Text = "wrong infomartion, try again pls";
+            
         }
 
     }
