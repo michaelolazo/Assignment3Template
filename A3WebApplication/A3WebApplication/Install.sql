@@ -179,7 +179,7 @@ END
 GO
 CREATE PROC spGetCustomerByID
 ( 
-		@CustomerID INT
+		@CustomerID INT = null
 )
 AS BEGIN
 		SELECT * FROM tbCustomer
@@ -238,22 +238,22 @@ END
 GO
 CREATE PROC spGetProductsByCategoryID
 (
-		@ProductID int
+		@CategoryID int =null
 )
 AS BEGIN
-			SELECT * FROM tbProdcuts
-			 WHERE ProductID = @ProductID
+			SELECT * FROM tbProducts
+			 WHERE ProductID =ISNULL(@CategoryID ,CategoryID)
 END
 
 --spGetProductByID
 GO
 CREATE PROC spGetProductByID
 (		
-		@ProductID INT
+		@ProductID INT=NULL
 )
 AS BEGIN
 			SELECT * FROM tbProduct 
-			WHERE ProductID=@ProductID
+			WHERE ProductID=ISNULL(@ProductID ,ProductID)
 END
 GO
 --spInsertProduct
@@ -276,7 +276,7 @@ END
 go
 CREATE PROC spDeleteProduct
 (
-			@ProductID INT
+			@ProductID INT 
 )
 AS BEGIN
 				DELETE  FROM tbProduct 
@@ -304,7 +304,7 @@ END
 GO 
 CREATE PROC spGetOrderByID
 (
-			@OrderID INT
+			@OrderID INT =null
 )
 AS BEGIN
 		SELECT * FROM tbOrder
@@ -336,7 +336,7 @@ END
 GO
 CREATE PROC spGetOrderDetailByID
 (
-			@OrderDetailID INT
+			@OrderDetailID INT =null
 )
 AS BEGIN
 			SELECT * FROM tbOrderDetail
