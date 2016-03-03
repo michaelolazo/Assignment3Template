@@ -1,0 +1,16 @@
+﻿.student {
+    color:crimson;
+    margin:5px;
+    font-style: oblique;
+    font-size:large
+}
+
+.student img{
+    width:150px;
+    height:150px;
+}
+.student b
+{
+    font-size:x-large;
+    color: black;
+}

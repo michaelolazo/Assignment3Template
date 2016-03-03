@@ -7,6 +7,7 @@
         <Columns>
             <asp:ButtonField CommandName="Delete" ButtonType="Button" Text="Delete " />
             <asp:ButtonField CommandName="Update" ButtonType="Button" Text="Update " />
+            <asp:ButtonField CommandName="Edit" ButtonType="Button" Text="Edit " />
             <asp:BoundField DataField="Name" HeaderText="Name" />
             <asp:BoundField DataField="Price" HeaderText="Price" />
             <asp:BoundField DataField="CategoryID" HeaderText="CategoryID" />
