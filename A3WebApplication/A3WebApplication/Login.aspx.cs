@@ -21,24 +21,26 @@ namespace A3WebApplication
             }
             else if (!Security.IsCustomerAdmin() && Security.IsCustomerLoggedIn()) // this checks if custoemr is an admin and if customer is already logged in if returned true redirects to the categories page
             {
-                Response.Redirect("Categories.aspx"); 
+                Response.Redirect("Categories.aspx");
             }
 
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            
-                try
-                {
-                    Security.Login(tbUsername.Text, tbPassword.Text);
-                    Response.Redirect(Request.RawUrl);
-                }
-            catch(Exception)
+            try
+            {
+                Security.Login(tbUsername.Text, tbPassword.Text);
+                Response.Redirect("AdminPage.aspx");
+            }
+            catch (Exception)
             {
                 lblMessage.Visible = true;
-                lblMessage.Text = "Wrong Information Entered, Relog pls";
+                lblMessage.Text = "Welcome admin";
+
             }
+            lblMessage.Visible = true;
+            lblMessage.Text = "wrong infomartion, try again pls";
         }
 
     }
