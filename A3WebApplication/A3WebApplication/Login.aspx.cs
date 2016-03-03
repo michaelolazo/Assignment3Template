@@ -15,17 +15,31 @@ namespace A3WebApplication
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Security.IsCustomerAdmin())   // since this is a bool returns true and cheks if customer is admin if it checks out it goes to admin page
+            {
+                Response.Redirect("AdminPage.aspx");  // the redirect if customer is able to log into the page as admin 
+            }
+            else if (!Security.IsCustomerAdmin() && Security.IsCustomerLoggedIn()) // this checks if custoemr is an admin and if customer is already logged in if returned true redirects to the categories page
+            {
+                Response.Redirect("Categories.aspx"); 
+            }
 
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-          
+            
+                try
+                {
+                    Security.Login(tbUsername.Text, tbPassword.Text);
+                    Response.Redirect(Request.RawUrl);
+                }
+            catch(Exception)
+            {
+                lblMessage.Visible = true;
+                lblMessage.Text = "Wrong Information Entered, Relog pls";
+            }
         }
 
-        protected void btnLogout_Click(object sender, EventArgs e)
-        {
-            Session.Abandon();
-        }
     }
 }

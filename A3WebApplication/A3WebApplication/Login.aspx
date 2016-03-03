@@ -5,7 +5,6 @@
       UserName: <asp:TextBox ID="tbUsername" runat="server"></asp:TextBox>
       Password: <asp:TextBox ID="tbPassword" runat="server"></asp:TextBox>
        <br /> <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click"/><br />
-           <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" /><br />
         <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
     </asp:Panel>
 <%--    7 MARKS TOTAL

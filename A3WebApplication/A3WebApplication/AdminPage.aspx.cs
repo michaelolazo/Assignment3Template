@@ -35,6 +35,7 @@ namespace A3WebApplication
             myd.AddParam("ProductID", ProductID);
             myd.ExecuteProcedure("spDeleteProduct");
             gvAdminProducts.DataBind();
+            LoadProducts();
             //gvAdminProducts.SelectedIndex = Convert.ToInt32(e.CommandArguement.ToString());
             //string ID = gvAdminProducts.SelectedValue.ToString();
 
@@ -60,6 +61,7 @@ namespace A3WebApplication
             DAL myd = new DAL(ConfigurationManager.ConnectionStrings["dbA3ConnStr"].ConnectionString);
             myd.AddParam("ProductID", ProductID);
             myd.ExecuteProcedure("spDeleteProduct");
+            LoadProducts();
         }
     }
 }
