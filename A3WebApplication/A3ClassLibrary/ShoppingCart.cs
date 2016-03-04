@@ -15,7 +15,10 @@ namespace A3ClassLibrary
         public List<CartItem> Cart { get; set; }
 
         // TODO 1 MARK: Initialize the Cart in a constructor
+        public ShoppingCart()
+        {
 
+        }
         /// <summary>
         /// Create a new CartItem based on parameters and adds it to the List<CartItem>.
         /// </summary>

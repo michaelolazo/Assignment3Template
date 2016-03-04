@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL_Project;
 
 namespace A3ClassLibrary
 {
@@ -65,7 +66,18 @@ namespace A3ClassLibrary
         
         // TODO 
         // 2 MARKS: write a method which impliments spInsertProduct
+        private  void spInsertProduct()
+        {
+        }
         // 2 MARKS: write a method which impliments spDeleteProduct
+        private void spDeleteProduct()
+        {
+
+        }
         // 2 MARKS: write a method which impliments spUpdateProduct
+        private void spUpdateProduct()
+        {
+
+        }
     }
 }

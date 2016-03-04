@@ -20,9 +20,17 @@ namespace A3ClassLibrary
         // populate a new Category instance with the values returned from the database
 
         // BONUS 1 MARK: write method which impliments spInsertCategory
+        private void spInsertCategory()
+        {
+        }
         // BONUS 1 MARK: write method which impliments spDeleteCategory
+        private void spDeleteCategory()
+        {
+        }
         // BONUS 1 MARK: write method which impliments spUpdateCategory
- 
+        private void spUpdateCategory()
+        {
+        }
         public static List<Category> GetAllCategories()
         {
             List<Category> resultList = new List<Category>();
