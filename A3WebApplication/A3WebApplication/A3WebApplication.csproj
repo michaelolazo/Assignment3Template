@@ -83,7 +83,7 @@
     <Content Include="Images\noimage.gif" />
     <Content Include="packages.config" />
     <Content Include="MainMaster.Master" />
-    <Content Include="Images\groundedmushroom.png-c200" />
+    <Content Include="Images\gmushroom.png" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

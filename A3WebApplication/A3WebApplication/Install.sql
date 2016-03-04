@@ -74,10 +74,10 @@ INSERT INTO tbCategory(Name,ImagePath) VALUES
 																													('Doug/Boss','dougjackson.jpg') -- 4 categories
 
 INSERT INTO tbProduct(Name,Price,PrimaryImagePath,CategoryID)				VALUES('Slime','15.00','groundedslime.jpg',1),
-																																	('Mushroom','20.00','groundedmushroom.png-c200',1),
+																																	('Mushroom','20.00','gmushroom.png',1),
 																																	('Pig','10.00','groundedpig.png',1),
 																																	('Zakum','200.00','groundedzakum.jpg',1),
-																																	('Pianus Fish Thing','1000.00','groundedpianus',1),
+																																	('Pianus Fish Thing','1000.00','groundedpianus.png',1),
 																																	('Alf','9000.00','groundedalf.jpg',1),
 																																	('Pidgey','300.00','flyingpidgey.jpg',2),
 																																	('Noctowl','400.00','flyingowl.png',2),
