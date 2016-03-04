@@ -234,7 +234,7 @@ CREATE PROC spGetProductsByCategoryID
 		@CategoryID int =null
 )
 AS BEGIN
-			SELECT * FROM tbProducts
+			SELECT * FROM tbProduct
 			 WHERE ProductID =ISNULL(@CategoryID ,CategoryID)
 END
 

@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL_Project;
 
 namespace A3ClassLibrary
 {
@@ -22,6 +23,7 @@ namespace A3ClassLibrary
         // BONUS 1 MARK: write method which impliments spInsertCategory
         private void spInsertCategory()
         {
+            DAL myd = new DAL(ConfigurationManager.ConnectionStrings["dbA3ConnStr"].ConnectionString);
         }
         // BONUS 1 MARK: write method which impliments spDeleteCategory
         private void spDeleteCategory()

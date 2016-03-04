@@ -32,7 +32,7 @@ namespace A3WebApplication
             string CategoryID = e.CommandArgument.ToString();
             if (e.CommandName== "CategoryID")
             {
-                Response.Redirect("ProductsPage.aspx?CategoryID= " + CategoryID);
+                Response.Redirect("ProductsPage.aspx?= " + CategoryID);
             }
         }
     }

@@ -13,7 +13,8 @@
             <asp:BoundField DataField="Price" HeaderText="Price" />
             <asp:BoundField DataField="CategoryID" HeaderText="CategoryID" />
             <asp:BoundField DataField="PrimaryImagePath" HeaderText="ImagePath" />
-            <asp:ImageField DataImageUrlField="PrimaryImagePath" HeaderText="Image" DataImageUrlFormatString="images/{0}" ItemStyle-Height="75px" ItemStyle-Width="75px" />  
+            <asp:ImageField DataImageUrlField="PrimaryImagePath" HeaderText="Image" 
+                DataImageUrlFormatString="images/{0}" ControlStyle-Height="100px" ControlStyle-Width="100px" />  
         </Columns>
     </asp:GridView>
     <%--    17 MARKS TOTAL

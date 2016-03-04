@@ -1,16 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainMaster.Master" AutoEventWireup="true" CodeBehind="CategoriesPage.aspx.cs" Inherits="A3WebApplication.CategoriesPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <link href="Styles/picturestuff.css " class="img" rel="stylesheet" />
-    <asp:DataList ID="dlCategories" OnItemCommand="dlCategories_ItemCommand" RepeatColumns="2" DataKeyField="CategoryID"
+    <asp:DataList ID="dlCategories" OnItemCommand="dlCategories_ItemCommand"  RepeatColumns="2" DataKeyField="CategoryID"
         CssClass="img" runat="server" Height="205px">
         <ItemTemplate>
-            <div class="img" runat="server">
+            <div class="picturestuff" runat="server">
                 <link href="Styles/picturestuff.css" class="img" rel="stylesheet" />    
                 <b>CategoryID</b> <%#Eval("CategoryID") %><br />
                 <b>Name</b> <%#Eval("Name") %><br />
                 <b>ImagePath</b> <%#Eval("ImagePath") %>
                 <asp:ImageButton runat="server" CommandName="CategoryID"  CommandArgument='<%#Eval("CategoryID") %>'
-                     ImageUrl='<%# "Images/" + Eval("ImagePath") %>' Height="75" Width="75"/>               
+                     ImageUrl='<%# "Images/" + Eval("ImagePath") %>' Height="100" Width="100"/>               
             </div>
         </ItemTemplate>
     </asp:DataList>

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DAL_Project;
 using System.Configuration;
+using A3ClassLibrary;
 
 namespace A3WebApplication
 {
@@ -19,14 +20,30 @@ namespace A3WebApplication
 
             if (!IsPostBack)
             {
-                 CategoryID = Request.QueryString["CategoryID"];
-                
+                CategoryID = Request.QueryString["CategoryID"];
+                LoadCats();
+                LoadCats2();
                 loadProducts();
             }
-            /* TODO:
-                - 3 MARKS: grab CategoryID from QueryString and Populate the products based on the CategoryID
-            */
 
+        }
+        /* TODO:
+            - 3 MARKS: grab CategoryID from QueryString and Populate the products based on the CategoryID
+        */
+        private void LoadCats()
+        {
+            List<Product> p = new List<Product>();
+            p = Product.GetProductsByCategoryID(null);
+            dlProducts.DataSource = p;
+            dlProducts.DataBind();
+        }
+        private void LoadCats2(int ID)
+        {
+            List<Product> p = new List<Product>();
+            p = Product.GetProductsByCategoryID(ID);
+            dlProducts.DataSource = p;
+            dlProducts.DataKeyField = "CategoryID";
+            dlProducts.DataBind();
         }
         private void loadProducts()
         {
