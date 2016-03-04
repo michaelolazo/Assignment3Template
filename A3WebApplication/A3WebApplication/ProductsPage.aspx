@@ -10,7 +10,8 @@
             <b>PrimaryImagePath</b> <%#Eval("PrimaryImagePath") %><br />
             <b>CategoryID</b> <%#Eval("CategoryID") %>
                     <asp:Image runat="server" 
-                     ImageUrl='<%# "Images/" + Eval("PrimaryImagePath") %>' Height="150" Width="200"/>               
+                     ImageUrl='<%# "Images/" + Eval("PrimaryImagePath") %>' Height="150" Width="200"/><br />
+                        <asp:Button  ID="btnAddtoCart" Text="Add To Cart" runat="server"/>
             </div>
         </ItemTemplate>
     </asp:DataList>
