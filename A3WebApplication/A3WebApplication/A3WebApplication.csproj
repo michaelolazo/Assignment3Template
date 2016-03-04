@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\dougboss.jpg" />
+    <Content Include="Images\dougjackson.jpg" />
     <Content Include="Images\Flying.jpg" />
     <Content Include="Images\flyingice.jpg" />
     <Content Include="Images\flyingowl.png" />

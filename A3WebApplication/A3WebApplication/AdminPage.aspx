@@ -12,14 +12,14 @@
             <asp:BoundField DataField="Price" HeaderText="Price" />
             <asp:BoundField DataField="CategoryID" HeaderText="CategoryID" />
             <asp:BoundField DataField="PrimaryImagePath" HeaderText="ImagePath" />
-            <asp:ImageField DataImageUrlField="PrimaryImagePath" HeaderText="Image" DataImageUrlFormatString="images/{0}"  />  
+            <asp:ImageField DataImageUrlField="PrimaryImagePath" HeaderText="Image" DataImageUrlFormatString="images/{0}" ItemStyle-Height="75px" ItemStyle-Width="75px" />  
         </Columns>
     </asp:GridView>
     <%--    17 MARKS TOTAL
     1 BONUS MARK TOTAL
     TODO:  Impliment CRUD operations for Product as an admin.
     - 2 MARKS: Display all products with all column information
-    - 1 MARK: Hide the ProductID column
+    - 1 MARK: Hide the ProductID columns
     - 2 MARKS: Allow edit
     - 2 MARKS: Allow delete (BONUS 1 MARK: provided error message for FOREGIN KEY CONSTRAINT ISSUES)
     - 2 MARKS: Allow insert

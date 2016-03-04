@@ -1,20 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainMaster.Master" AutoEventWireup="true" CodeBehind="CategoriesPage.aspx.cs" Inherits="A3WebApplication.CategoriesPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <link href="Styles/picturestuff.css " class="img" rel="stylesheet" />
-    <asp:DataList ID="dlCategories" RepeatColumns="2" DataKeyField="CategoryID"
-        CssClass="img" OnItemCommand="dlCategories_ItemCommand" runat="server" Height="205px">
+    <asp:DataList ID="dlCategories" OnItemCommand="dlCategories_ItemCommand" RepeatColumns="2" DataKeyField="CategoryID"
+        CssClass="img" runat="server" Height="205px">
         <ItemTemplate>
             <div class="img" runat="server">
-                <link href="Styles/picturestuff.css" class="img" rel="stylesheet" />
-                <b>CategoryID</b> <%#Eval("CategoryID")%><br />
+                <link href="Styles/picturestuff.css" class="img" rel="stylesheet" />    
+                <b>CategoryID</b> <%#Eval("CategoryID") %><br />
                 <b>Name</b> <%#Eval("Name") %><br />
-                <b>ImagePath</b> 
-                <asp:Image  ID="img1" ImageUrl="~/Images/grounded.jpg" CssClass="img" runat="server" />
-                <asp:Image ID="imgCategory" ImageUrl='~/Images/mage.png' CssClass="img" runat="server" />
+                <b>ImagePath</b> <%#Eval("ImagePath") %>
+                <asp:ImageButton runat="server" CommandName="redirect" CommandArgument="redirect"
+                     ImageUrl='<%# "Images/" + Eval("ImagePath") %>' Height="75" Width="75"/>               
             </div>
         </ItemTemplate>
     </asp:DataList>
-
+    
 
 <%--     TODO: 
     - Show the categories in a DataList (2 MARKS)
