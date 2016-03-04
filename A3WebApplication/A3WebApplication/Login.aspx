@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainMaster.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="A3WebApplication.Login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
-
     <asp:Panel ID="pnlLogin" runat="server">
       UserName: <asp:TextBox ID="tbUsername" runat="server"></asp:TextBox>
       Password: <asp:TextBox ID="tbPassword" runat="server"></asp:TextBox>

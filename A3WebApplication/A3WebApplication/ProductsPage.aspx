@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainMaster.Master" AutoEventWireup="true" CodeBehind="ProductsPage.aspx.cs" Inherits="A3WebApplication.ProductsPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
+    <br />
+    Product Page
     <asp:DataList ID="dlProducts" runat="server" 
         OnItemCommand="dlProducts_ItemCommand"  Height="205px" RepeatColumns="3">
         <ItemTemplate>

@@ -9,7 +9,7 @@
                 <b>CategoryID</b> <%#Eval("CategoryID") %><br />
                 <b>Name</b> <%#Eval("Name") %><br />
                 <b>ImagePath</b> <%#Eval("ImagePath") %>
-                <asp:ImageButton runat="server" CommandName="redirect" CommandArgument="redirect"
+                <asp:ImageButton runat="server" CommandName="CategoryID"  CommandArgument='<%#Eval("CategoryID") %>'
                      ImageUrl='<%# "Images/" + Eval("ImagePath") %>' Height="75" Width="75"/>               
             </div>
         </ItemTemplate>

@@ -15,12 +15,14 @@ namespace A3WebApplication
         // 1 BONUS MARK TOTAL
         protected void Page_Load(object sender, EventArgs e)
         {
+            string CategoryID;
+
             if (!IsPostBack)
             {
-                //string CategoryID = Request.QueryString["CategoryID"];
+                 CategoryID = Request.QueryString["CategoryID"];
+                
                 loadProducts();
             }
-
             /* TODO:
                 - 3 MARKS: grab CategoryID from QueryString and Populate the products based on the CategoryID
             */
