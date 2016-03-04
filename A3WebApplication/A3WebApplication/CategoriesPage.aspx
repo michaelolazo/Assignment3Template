@@ -1,18 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainMaster.Master" AutoEventWireup="true" CodeBehind="CategoriesPage.aspx.cs" Inherits="A3WebApplication.CategoriesPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
-    <asp:DataList ID="dlCategories" RepeatColumns="2" DataKeyField="CategoryID" OnItemCommand="dlCategories_ItemCommand" runat="server" Height="205px">
+    <link href="Styles/picturestuff.css " class="img" rel="stylesheet" />
+    <asp:DataList ID="dlCategories" RepeatColumns="2" DataKeyField="CategoryID"
+        CssClass="img" OnItemCommand="dlCategories_ItemCommand" runat="server" Height="205px">
         <ItemTemplate>
-            <div class="Category" runat="server">
-
-                <b>CategoryID</b> <%#Eval("CategoryID") %><br />
+            <div class="img" runat="server">
+                <link href="Styles/picturestuff.css" class="img" rel="stylesheet" />
+                <b>CategoryID</b> <%#Eval("CategoryID")%><br />
                 <b>Name</b> <%#Eval("Name") %><br />
-                <b>ImagePath</b> <%#Eval("ImagePath") %>
-                <asp:Image  ID="imgCategory" ImageUrl='<%#Eval("ImagePath") %>' runat="server" />
-            </div>  
+                <b>ImagePath</b> 
+                <asp:Image  ID="img1" ImageUrl="~/Images/grounded.jpg" CssClass="img" runat="server" />
+                <asp:Image ID="imgCategory" ImageUrl='~/Images/mage.png' CssClass="img" runat="server" />
+            </div>
         </ItemTemplate>
     </asp:DataList>
-
-
 
 
 <%--     TODO: 

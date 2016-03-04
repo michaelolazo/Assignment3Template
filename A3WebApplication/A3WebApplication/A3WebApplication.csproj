@@ -99,6 +99,7 @@
     <Content Include="ProductsPage.aspx" />
     <Content Include="Styles\default.css" />
     <Content Include="Styles\fonts.css" />
+    <Content Include="Styles\picturestuff.css" />
     <Content Include="Styles\student.css" />
     <Content Include="Styles\style.css" />
     <Content Include="Web.config" />

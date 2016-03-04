@@ -4,12 +4,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+<link href="Styles/picturestuff.css" class="img" rel="stylesheet" />
     <title></title>
-  <%--  <link href="Styles/style.css" rel="stylesheet" />--%>
+    
+    <%--  <link href="Styles/style.css" rel="stylesheet" />--%>
 </head>
-<body>  
-    <form id="form1"   runat="server">
-        
+<body>
+    <form id="form1" runat="server">
+
         <%--      9 MARKS TOTAL
         2 BONUS MARKS TOTAL
         TODO:

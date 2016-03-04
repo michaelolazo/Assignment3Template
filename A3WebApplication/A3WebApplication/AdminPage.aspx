@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainMaster.Master" AutoEventWireup="true" CodeBehind="AdminPage.aspx.cs" Inherits="A3WebApplication.AdminPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
-
-    <asp:GridView ID="gvAdminProducts" AutoGenerateColumns="false"
+    <link href="Styles/picturestuff.css" class="img" rel="stylesheet" />
+    <asp:GridView ID="gvAdminProducts" CssClass="img" AutoGenerateColumns="false"
          OnRowCommand="gvAdminProducts_RowCommand" DataKeyNames="ProductID" OnRowDeleting="gvAdminProducts_RowDeleting" runat="server">
         <Columns>
             <asp:ButtonField CommandName="Delete" ButtonType="Button" Text="Delete " />
