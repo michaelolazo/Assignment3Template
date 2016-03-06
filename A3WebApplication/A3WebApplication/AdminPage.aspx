@@ -4,37 +4,39 @@
     <br />
     <link href="Styles/picturestuff.css" class="img" rel="stylesheet" />
     <asp:GridView ID="gvAdminProducts" CssClass="img" AutoGenerateColumns="false"
-         OnRowCommand="gvAdminProducts_RowCommand" 
-        DataKeyNames="ProductID" OnRowEditing="gvAdminProducts_RowEditing" 
+        OnRowCommand="gvAdminProducts_RowCommand"
+        DataKeyNames="ProductID" OnRowEditing="gvAdminProducts_RowEditing"
         OnRowDeleting="gvAdminProducts_RowDeleting" OnRowCancelingEdit="gvAdminProducts_RowCancelingEdit"
-         OnRowUpdating="gvAdminProducts_RowUpdating" runat="server">
+        OnRowUpdating="gvAdminProducts_RowUpdating" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black">
         <Columns>
-          <asp:TemplateField InsertVisible="false" SortExpression="DeleteProduct" />
-         <asp:ButtonField CommandName="DeleteProduct" ButtonType="Button" Text="Delete " />
-            <asp:ButtonField CommandName="UpdateProduct" InsertVisible="false" ButtonType="Button"  Text="Update " />
+            <%--            <asp:TemplateField InsertVisible="false" SortExpression="DeleteProduct" />--%>
+            <asp:ButtonField CommandName="DeleteProduct" ButtonType="Button" Text="Delete " />
+            <asp:ButtonField CommandName="UpdateProduct" InsertVisible="false" ButtonType="Button" Text="Update " />
             <asp:ButtonField CommandName="Edit" ButtonType="Button" Text="Edit " />
             <asp:BoundField DataField="Name" HeaderText="Name" />
-            <asp:TemplateField>
-                <EditItemTemplate>
-                    <asp:TextBox ID="tbName" Text='<%# Bind("Name") %>' runat="server"></asp:TextBox>
-                </EditItemTemplate>
-            </asp:TemplateField>
             <asp:BoundField DataField="Price" HeaderText="Price" />
-            <asp:TemplateField>
-                <EditItemTemplate>
-                    <asp:TextBox ID="tbPrice" Text='<%# Bind("Price") %>' runat="server"></asp:TextBox>
-                </EditItemTemplate>
-            </asp:TemplateField>
             <asp:BoundField DataField="CategoryID" HeaderText="CategoryID" />
-            <asp:TemplateField>
-                <EditItemTemplate>
-                    <asp:TextBox ID="tbCategoryID" Text='<%# Bind("CategoryID") %>' runat="server"></asp:TextBox>
-                </EditItemTemplate>
-            </asp:TemplateField>
             <asp:BoundField DataField="PrimaryImagePath" HeaderText="ImagePath" />
-            <asp:ImageField DataImageUrlField="PrimaryImagePath" HeaderText="Image" 
-                DataImageUrlFormatString="images/{0}" ControlStyle-Height="100px" ControlStyle-Width="100px" />  
+            <asp:ImageField DataImageUrlField="PrimaryImagePath" HeaderText="Image"
+                DataImageUrlFormatString="images/{0}" ControlStyle-Height="100px" ControlStyle-Width="100px" />
         </Columns>
+        <FooterStyle BackColor="#CCCCCC"></FooterStyle>
+
+        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White"></HeaderStyle>
+
+        <PagerStyle HorizontalAlign="Left" BackColor="#CCCCCC" ForeColor="Black"></PagerStyle>
+
+        <RowStyle BackColor="White"></RowStyle>
+
+        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White"></SelectedRowStyle>
+
+        <SortedAscendingCellStyle BackColor="#F1F1F1"></SortedAscendingCellStyle>
+
+        <SortedAscendingHeaderStyle BackColor="#808080"></SortedAscendingHeaderStyle>
+
+        <SortedDescendingCellStyle BackColor="#CAC9C9"></SortedDescendingCellStyle>
+
+        <SortedDescendingHeaderStyle BackColor="#383838"></SortedDescendingHeaderStyle>
     </asp:GridView>
     <asp:Label ID="lblMessage" Text="" Visible="false" runat="server" />
     <%--    17 MARKS TOTAL
