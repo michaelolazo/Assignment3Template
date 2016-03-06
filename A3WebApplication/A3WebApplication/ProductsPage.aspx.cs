@@ -16,15 +16,14 @@ namespace A3WebApplication
         // 1 BONUS MARK TOTAL
         protected void Page_Load(object sender, EventArgs e)
         {
-            string CategoryID;
 
             if (!IsPostBack)
             {
-                CategoryID = Request.QueryString["CategoryID"];
                 LoadCats();
-                LoadCats2();
-                loadProducts();
+                //LoadCats2(ID);
+                //loadProducts();
             }
+            
 
         }
         /* TODO:
@@ -32,19 +31,19 @@ namespace A3WebApplication
         */
         private void LoadCats()
         {
-            List<Product> p = new List<Product>();
-            p = Product.GetProductsByCategoryID(null);
-            dlProducts.DataSource = p;
+
+            int? CategoryID = Convert.ToInt32(Request.QueryString["CategoryID"]); //TODO: how do you stop it from bombing, if it's NOT a number? Or if CategoryID in the query string is missing.. 
+            dlProducts.DataSource = Product.GetProductsByCategoryID(CategoryID);
             dlProducts.DataBind();
         }
-        private void LoadCats2(int ID)
-        {
-            List<Product> p = new List<Product>();
-            p = Product.GetProductsByCategoryID(ID);
-            dlProducts.DataSource = p;
-            dlProducts.DataKeyField = "CategoryID";
-            dlProducts.DataBind();
-        }
+        //private void LoadCats2(int ID)
+        //{
+        //    List<Product> p = new List<Product>();
+        //    p = Product.GetProductsByCategoryID(ID);
+        //    dlProducts.DataSource = p;
+        //    dlProducts.DataKeyField = "CategoryID";
+        //    dlProducts.DataBind();
+        //}
         private void loadProducts()
         {
             DAL myd = new DAL(ConfigurationManager.ConnectionStrings["dbA3ConnStr"].ConnectionString);

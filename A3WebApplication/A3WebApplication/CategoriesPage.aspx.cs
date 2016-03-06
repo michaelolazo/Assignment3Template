@@ -30,9 +30,9 @@ namespace A3WebApplication
         protected void dlCategories_ItemCommand(object source, DataListCommandEventArgs e)
         {
             string CategoryID = e.CommandArgument.ToString();
-            if (e.CommandName== "CategoryID")
+            if (e.CommandName == "CategoryID")
             {
-                Response.Redirect("ProductsPage.aspx?= " + CategoryID);
+                Response.Redirect("ProductsPage.aspx?CategoryID=" + CategoryID);
             }
         }
     }

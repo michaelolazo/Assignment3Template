@@ -235,7 +235,7 @@ CREATE PROC spGetProductsByCategoryID
 )
 AS BEGIN
 			SELECT * FROM tbProduct
-			 WHERE ProductID =ISNULL(@CategoryID ,CategoryID)
+			 WHERE CategoryID =ISNULL(@CategoryID ,CategoryID)
 END
 
 --spGetProductByID
@@ -290,7 +290,7 @@ BEGIN
 		UPDATE tbProduct
 		SET Name = @Name,
 		Price =@Price,
-		@PrimaryImagePath = @PrimaryImagePath
+		PrimaryImagePath = @PrimaryImagePath
 		WHERE ProductID = @ProductID
 END
 --spGetOrderByID

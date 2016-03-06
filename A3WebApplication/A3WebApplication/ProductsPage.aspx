@@ -3,20 +3,22 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <br />
     Product Page
-    <asp:DataList ID="dlProducts" runat="server" 
-        OnItemCommand="dlProducts_ItemCommand"  Height="205px" RepeatColumns="3">
+    <asp:DataList ID="dlProducts" runat="server"
+        OnItemCommand="dlProducts_ItemCommand" Height="205px" RepeatColumns="3">
         <ItemTemplate>
             <b>ProductID</b> <%#Eval("ProductID") %><br />
             <b>Name</b> <%#Eval("Name") %><br />
             <b>Price</b> <%#Eval("Price") %><br />
             <b>PrimaryImagePath</b> <%#Eval("PrimaryImagePath") %><br />
             <b>CategoryID</b> <%#Eval("CategoryID") %>
-                    <asp:Image runat="server" 
-                     ImageUrl='<%# "Images/" + Eval("PrimaryImagePath") %>' Height="150" Width="200"/><br />
-                        <asp:Button  ID="btnAddtoCart" Text="Add To Cart" runat="server"/>
+            <asp:Image runat="server"
+                ImageUrl='<%# "Images/" + Eval("PrimaryImagePath") %>' Height="150" Width="200" /><br />
+            <asp:Button ID="btnAddtoCart" Text="Add To Cart" runat="server" />
             </div>
         </ItemTemplate>
     </asp:DataList>
+    <br />
+    <asp:Label ID="lblErrorMessage" runat="server" Text="" Visible="false"></asp:Label>
     <%--          4 MARKS TOTAL
             1 BONUS MARK TOTAL
             TODO:

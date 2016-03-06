@@ -17,7 +17,7 @@ namespace A3ClassLibrary
         // TODO 1 MARK: Initialize the Cart in a constructor
         public ShoppingCart()
         {
-
+            ShoppingCart s = new ShoppingCart();
         }
         /// <summary>
         /// Create a new CartItem based on parameters and adds it to the List<CartItem>.

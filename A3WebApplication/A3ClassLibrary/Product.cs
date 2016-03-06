@@ -22,7 +22,7 @@ namespace A3ClassLibrary
         /// Returns a List populated with Product objects based on a categoryID. 
         /// Note that if null is passed, ALL products are returned
         /// </summary>
-        public static List<Product> GetProductsByCategoryID(int? categoryID)
+        public static List<Product> GetProductsByCategoryID(int? categoryID) // OPTIONALLY: string sortColumn = "ProductID", string sortDirection ="desc"
         {
             List<Product> listResult = new List<Product>();
 
@@ -63,21 +63,29 @@ namespace A3ClassLibrary
             p.PrimaryImagePath = row["PrimaryImagePath"].ToString();
             return p;
         }
-        
+
         // TODO 
         // 2 MARKS: write a method which impliments spInsertProduct
-        private  void spInsertProduct()
+        public void InsertProduct()
         {
+            DAL myd = new DAL(ConfigurationManager.ConnectionStrings["dbA3ConnStr"].ConnectionString);
         }
         // 2 MARKS: write a method which impliments spDeleteProduct
-        private void spDeleteProduct()
+        public void DeleteProduct()
         {
-
+            DAL myd = new DAL(ConfigurationManager.ConnectionStrings["dbA3ConnStr"].ConnectionString);
+            myd.AddParam("ProductID", this.ProductID);
+            myd.ExecuteProcedure("spDeleteProduct");
         }
         // 2 MARKS: write a method which impliments spUpdateProduct
-        private void spUpdateProduct()
+        public void UpdateProduct()
         {
-
+            DAL myd = new DAL(ConfigurationManager.ConnectionStrings["dbA3ConnStr"].ConnectionString);
+            myd.AddParam("ProductID", this.ProductID);
+            myd.AddParam("Name", this.Name);
+            myd.AddParam("Price", this.Price);
+            myd.AddParam("PrimaryImagePath", this.PrimaryImagePath);
+            myd.ExecuteProcedure("spUpdateProduct");
         }
     }
 }

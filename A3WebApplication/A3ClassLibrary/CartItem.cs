@@ -27,6 +27,7 @@ namespace A3ClassLibrary
         /// <summary>
         /// BONUS 2 MARKS. Make your Cart Items comparable by ProductID.
         /// Example: ProductID of 10 is greater than productID 3
+        /// make it iecomparable
         /// </summary>
         
         public void CheckOutItemDetail(int orderID)

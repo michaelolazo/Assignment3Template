@@ -4,10 +4,13 @@
     <br />
     <link href="Styles/picturestuff.css" class="img" rel="stylesheet" />
     <asp:GridView ID="gvAdminProducts" CssClass="img" AutoGenerateColumns="false"
-         OnRowCommand="gvAdminProducts_RowCommand" DataKeyNames="ProductID" OnRowDeleting="gvAdminProducts_RowDeleting" runat="server">
+         OnRowCommand="gvAdminProducts_RowCommand" 
+        DataKeyNames="ProductID" OnRowEditing="gvAdminProducts_RowEditing" 
+        OnRowDeleting="gvAdminProducts_RowDeleting" OnRowCancelingEdit="gvAdminProducts_RowCancelingEdit"
+         OnRowUpdating="gvAdminProducts_RowUpdating" runat="server">
         <Columns>
-            <asp:ButtonField CommandName="Delete" ButtonType="Button" Text="Delete " />
-            <asp:ButtonField CommandName="Update" ButtonType="Button" Text="Update " />
+            <asp:ButtonField CommandName="DeleteProduct" ButtonType="Button" Text="Delete " />
+            <asp:ButtonField CommandName="UpdateProduct" ButtonType="Button" Text="Update " />
             <asp:ButtonField CommandName="Edit" ButtonType="Button" Text="Edit " />
             <asp:BoundField DataField="Name" HeaderText="Name" />
             <asp:BoundField DataField="Price" HeaderText="Price" />
@@ -17,6 +20,7 @@
                 DataImageUrlFormatString="images/{0}" ControlStyle-Height="100px" ControlStyle-Width="100px" />  
         </Columns>
     </asp:GridView>
+    <asp:Label ID="lblMessage" Text="" Visible="false" runat="server" />
     <%--    17 MARKS TOTAL
     1 BONUS MARK TOTAL
     TODO:  Impliment CRUD operations for Product as an admin.

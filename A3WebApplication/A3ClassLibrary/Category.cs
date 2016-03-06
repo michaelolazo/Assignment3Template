@@ -21,16 +21,16 @@ namespace A3ClassLibrary
         // populate a new Category instance with the values returned from the database
 
         // BONUS 1 MARK: write method which impliments spInsertCategory
-        private void spInsertCategory()
+        private void InsertCategory()
         {
             DAL myd = new DAL(ConfigurationManager.ConnectionStrings["dbA3ConnStr"].ConnectionString);
         }
         // BONUS 1 MARK: write method which impliments spDeleteCategory
-        private void spDeleteCategory()
+        private void DeleteCategory()
         {
         }
         // BONUS 1 MARK: write method which impliments spUpdateCategory
-        private void spUpdateCategory()
+        private void UpdateCategory()
         {
         }
         public static List<Category> GetAllCategories()
