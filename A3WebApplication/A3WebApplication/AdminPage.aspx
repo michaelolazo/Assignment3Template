@@ -9,13 +9,28 @@
         OnRowDeleting="gvAdminProducts_RowDeleting" OnRowCancelingEdit="gvAdminProducts_RowCancelingEdit"
          OnRowUpdating="gvAdminProducts_RowUpdating" runat="server">
         <Columns>
-<%--            <asp:TemplateField InsertVisible="false" SortExpression="DeleteProduct" />--%>
-            <asp:ButtonField CommandName="DeleteProduct" ButtonType="Button" Text="Delete " />
+          <asp:TemplateField InsertVisible="false" SortExpression="DeleteProduct" />
+         <asp:ButtonField CommandName="DeleteProduct" ButtonType="Button" Text="Delete " />
             <asp:ButtonField CommandName="UpdateProduct" InsertVisible="false" ButtonType="Button"  Text="Update " />
             <asp:ButtonField CommandName="Edit" ButtonType="Button" Text="Edit " />
             <asp:BoundField DataField="Name" HeaderText="Name" />
+            <asp:TemplateField>
+                <EditItemTemplate>
+                    <asp:TextBox ID="tbName" Text='<%# Bind("Name") %>' runat="server"></asp:TextBox>
+                </EditItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField DataField="Price" HeaderText="Price" />
+            <asp:TemplateField>
+                <EditItemTemplate>
+                    <asp:TextBox ID="tbPrice" Text='<%# Bind("Price") %>' runat="server"></asp:TextBox>
+                </EditItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField DataField="CategoryID" HeaderText="CategoryID" />
+            <asp:TemplateField>
+                <EditItemTemplate>
+                    <asp:TextBox ID="tbCategoryID" Text='<%# Bind("CategoryID") %>' runat="server"></asp:TextBox>
+                </EditItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField DataField="PrimaryImagePath" HeaderText="ImagePath" />
             <asp:ImageField DataImageUrlField="PrimaryImagePath" HeaderText="Image" 
                 DataImageUrlFormatString="images/{0}" ControlStyle-Height="100px" ControlStyle-Width="100px" />  

@@ -83,10 +83,11 @@ namespace A3WebApplication
         {
             int Index = gvAdminProducts.EditIndex;
             GridViewRow row = gvAdminProducts.Rows[Index];
-            TextBox one = row.FindControl("TextBox1") as TextBox;
-            TextBox two = row.FindControl("TextBox2") as TextBox;
+            TextBox nameb = row.FindControl("tbName") as TextBox;
+            TextBox priceb = row.FindControl("tbPrice") as TextBox;
+            TextBox cateb = row.FindControl("tbCategoryID") as TextBox;
             string t = gvAdminProducts.DataKeys[e.RowIndex].Value.ToString();
-            lblMessage.Text = "You changed " + one.ToString() + two.ToString();
+            lblMessage.Text = "You changed " + nameb.ToString() + priceb.ToString() + cateb.ToString() + " Good Job.";
             Product Pebor = new Product();
             Pebor.UpdateProduct();
             LoadProducts();
