@@ -9,8 +9,9 @@
         OnRowDeleting="gvAdminProducts_RowDeleting" OnRowCancelingEdit="gvAdminProducts_RowCancelingEdit"
          OnRowUpdating="gvAdminProducts_RowUpdating" runat="server">
         <Columns>
+<%--            <asp:TemplateField InsertVisible="false" SortExpression="DeleteProduct" />--%>
             <asp:ButtonField CommandName="DeleteProduct" ButtonType="Button" Text="Delete " />
-            <asp:ButtonField CommandName="UpdateProduct" ButtonType="Button" Text="Update " />
+            <asp:ButtonField CommandName="UpdateProduct" InsertVisible="false" ButtonType="Button"  Text="Update " />
             <asp:ButtonField CommandName="Edit" ButtonType="Button" Text="Edit " />
             <asp:BoundField DataField="Name" HeaderText="Name" />
             <asp:BoundField DataField="Price" HeaderText="Price" />

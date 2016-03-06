@@ -83,7 +83,13 @@ namespace A3WebApplication
         {
             int Index = gvAdminProducts.EditIndex;
             GridViewRow row = gvAdminProducts.Rows[Index];
-
+            TextBox one = row.FindControl("TextBox1") as TextBox;
+            TextBox two = row.FindControl("TextBox2") as TextBox;
+            string t = gvAdminProducts.DataKeys[e.RowIndex].Value.ToString();
+            lblMessage.Text = "You changed " + one.ToString() + two.ToString();
+            Product Pebor = new Product();
+            Pebor.UpdateProduct();
+            LoadProducts();
         }
 
         protected void gvAdminProducts_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
