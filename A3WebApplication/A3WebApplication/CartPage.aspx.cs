@@ -24,6 +24,8 @@ namespace A3WebApplication
         {
             DAL myd = new DAL(ConfigurationManager.ConnectionStrings["dbA3ConnStr"].ConnectionString);
 
+            //gvCart.DataSource = myd.ExecuteProcedure("spGetOrderDetailByID");
+            //gvCart.DataBind();
         }
     }
 }

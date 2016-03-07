@@ -53,16 +53,20 @@ namespace A3WebApplication
 
         protected void dlProducts_ItemCommand(object source, DataListCommandEventArgs e)
         {
+            
             int CategoryID = Convert.ToInt32(Request.QueryString["CategoryID"]);
-
-             //dlProducts.SelectedIndex = Convert.ToInt32(e.CommandArgument.ToString());
+            lblErrorMessage.Visible = true;
+            lblErrorMessage.Text = "You chose this product with the CategoryID of "+ CategoryID.ToString();
+            //LoadCats();
+            //dlProducts.SelectedIndex = Convert.ToInt32(e.CommandArgument.ToString());
 
             /* TODO: 
                 - 1 MARK:  get the right ProductID based on which product was clicked
                 - BONUS 1 MARK:  get the quantity from the drop down if you made one
                 - 1 MARK: Use the SessionCart's Instance to add a new Cart Item to the ShoppingCart and redirect to the CartPage
             */
-            
+            //Response.Redirect("ProductsPage.aspx?CategoryID=" + e.CommandArgument);
         }
+
     }
 }

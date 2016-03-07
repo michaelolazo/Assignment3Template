@@ -11,6 +11,7 @@
 <body>
     <form id="form1" runat="server">
         <asp:HyperLink ID="hlProducts" NavigateUrl="~/ProductsPage.aspx" runat="server">Products</asp:HyperLink>
+        <asp:HyperLink ID="hlCart" NavigateUrl="~/CartPage.aspx" runat="server">Cart</asp:HyperLink>
         <asp:HyperLink ID="hlCategories" NavigateUrl="~/CategoriesPage.aspx" runat="server">Categories</asp:HyperLink>
         <asp:HyperLink ID="hlLoginMeInFam" NavigateUrl="~/Login.aspx" runat="server">Login</asp:HyperLink>
          <asp:HyperLink ID="hlLogMeOutFam"  NavigateUrl="~/Login.aspx" runat="server">Login</asp:HyperLink>

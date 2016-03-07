@@ -305,15 +305,23 @@ AS BEGIN
 END
 --spInsertOrder
 go
---CREATE PROC spInsertOrder  -- come back to this and make another column to order from
---(
-			
---)
---AS 
---BEGIN
---		INSERT INTO tbCategory(Name) 	
---		VALUES (@Name)
-go
+create proc spInsertOrder  -- come back to this and make another column to order from
+(
+			@PricePaid DECIMAL(10,2),
+			@Quantity INT,
+			@OrderDate DATE,
+			@ProductID INT=NULL,
+			@CustomerID INT=NULL,
+			@CategoryID INT=NULL,
+			@OrderID INT =NULL
+)
+AS  BEGIN
+		INSERT INTO tbOrderDetail(PricePaid,Quantity,OrderDate,ProductID,CustomerID,CategoryID,OrderID)
+		VALUES(@PricePaid,@Quantity,@OrderDate,@ProductID,@CustomerID,@CategoryID,@OrderID)
+		SELECT SCOPE_IDENTITY() AS [OrderID]
+		
+END
+GO
 --spDeleteOrder
 CREATE PROC spDeleteOrder
 (
@@ -329,7 +337,7 @@ END
 GO
 CREATE PROC spGetOrderDetailByID
 (
-			@OrderDetailID INT =null
+			@OrderDetailID INT
 )
 AS BEGIN
 			SELECT * FROM tbOrderDetail

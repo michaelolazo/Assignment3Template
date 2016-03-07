@@ -13,7 +13,6 @@ namespace A3WebApplication
         // This variable will only exist once per customer (per session) 
         // The real cart functions are in ShoppingCart class
         public static readonly ShoppingCart Instance;
-
         // The static constructor is called as soon as the class is loaded into memory
         static SessionCart()
         {

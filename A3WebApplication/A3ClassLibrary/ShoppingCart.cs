@@ -25,7 +25,11 @@ namespace A3ClassLibrary
         public void AddToCart(int productID, int quantity)
         {
             CartItem item = new CartItem(productID, quantity);
-            
+
+            if (!Cart.Contains(item))
+            {
+                Cart.Add(item);
+            }
             // TODO (1 MARK): Add the new item into the cart.
             // BONUS MARK: Check to see if the item already exists, if so, update it by the quantity value in the parameter.
         }
@@ -85,7 +89,6 @@ namespace A3ClassLibrary
             double sum = 0;
 
             // TODO (2 marks): Finish this method, it should return a total of all the item costs multiplied by their quantity
-
             return sum;
         }
 

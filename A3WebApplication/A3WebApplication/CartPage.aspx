@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainMaster.Master" AutoEventWireup="true" CodeBehind="CartPage.aspx.cs" Inherits="A3WebApplication.CartPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
-  
-    
+  Cart Page
+    <asp:GridView ID="gvCart" runat="server"></asp:GridView>
     
      <%-- 17 MARKS TOTAL
     1 BONUS MARK TOTAL
