@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace A3ClassLibrary
 {
-    public class CartItem : Product
+    public class CartItem : Product, IEquatable<CartItem>
     {
         public int Quantity { get; set; }
         public double SubTotal { get { return Price * Quantity; } }
 
-        public CartItem(int productID, int quantity)
+        public CartItem(int productID, int quantity)  
         {
             Product myProduct = Product.GetProductByID(productID);
             this.Name = myProduct.Name;
@@ -40,6 +40,11 @@ namespace A3ClassLibrary
             d.AddParam("SubTotal", this.SubTotal);
 
             d.ExecuteProcedure("spInsertOrderDetail");
+        }
+
+        bool IEquatable<CartItem>.Equals(CartItem other)
+        {
+            throw new NotImplementedException();
         }
     }
 }

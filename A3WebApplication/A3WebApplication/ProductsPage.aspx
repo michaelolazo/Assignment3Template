@@ -6,8 +6,8 @@
     <asp:DataList ID="dlProducts" runat="server"
         OnItemCommand="dlProducts_ItemCommand" Height="205px" RepeatColumns="3">
         <ItemTemplate>
-            <b>ProductID</b> <%#Eval("ProductID") %><br />
-            <b>Name</b> <%#Eval("Name") %><br />
+            <b>ProductID</b><asp:LinkButton CommandArgument='<%#Eval("ProductID") %>'  CommandName="ProductID"  runat="server"> </asp:LinkButton> <br />
+<%--            <b>Name</b> <%#Eval("Name") %><br />--%>
             <b>Price</b> <%#Eval("Price") %><br />
             <b>PrimaryImagePath</b> <%#Eval("PrimaryImagePath") %><br />
             <b>CategoryID</b> <%#Eval("CategoryID") %>

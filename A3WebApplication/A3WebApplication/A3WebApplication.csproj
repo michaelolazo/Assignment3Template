@@ -66,6 +66,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="cssfolder\styles.css" />
     <Content Include="Images\dougboss.jpg" />
     <Content Include="Images\dougjackson.jpg" />
     <Content Include="Images\Flying.jpg" />

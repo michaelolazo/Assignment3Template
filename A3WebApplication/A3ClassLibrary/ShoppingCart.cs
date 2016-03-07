@@ -17,7 +17,7 @@ namespace A3ClassLibrary
         // TODO 1 MARK: Initialize the Cart in a constructor
         public ShoppingCart()
         {
-            ShoppingCart s = new ShoppingCart();
+            Cart = new List<CartItem>();
         }
         /// <summary>
         /// Create a new CartItem based on parameters and adds it to the List<CartItem>.
@@ -36,7 +36,6 @@ namespace A3ClassLibrary
         public void UpdateCartItem(int productID, int quantity)
         {
             CartItem updateItem = new CartItem(productID, quantity);
-
             // TODO (3 MARKS)
         }
 
@@ -89,11 +88,11 @@ namespace A3ClassLibrary
 
             return sum;
         }
-        
+
         // TODO (2 MARKS): return a boolean expression which returns true when the Cart is empty
-        //public bool IsEmpty()
-        //{
-            
-        //}
+        public bool IsEmpty()
+        {
+            return Cart.Count == 0;
+        }
     }
 }
