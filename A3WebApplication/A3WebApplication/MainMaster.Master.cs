@@ -13,8 +13,10 @@ namespace A3WebApplication
         {
             if (Security.IsCustomerLoggedIn())
             {
-                hlLoginMeInFam.Visible = true;
-                hlLogMeOutFam.Visible = false;
+                hlLoginMeInFam.Visible = false;
+                hlLogMeOutFam.Visible = true;
+
+
             }
             else if (!Security.IsCustomerLoggedIn())
             {

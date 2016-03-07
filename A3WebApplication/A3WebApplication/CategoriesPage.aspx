@@ -2,11 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <link href="Styles/picturestuff.css " class="img" rel="stylesheet" />
     <asp:DataList ID="dlCategories" OnItemCommand="dlCategories_ItemCommand" RepeatColumns="2" DataKeyField="CategoryID"
-        CssClass="img" runat="server" Height="205px" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" GridLines="Both">
+        CssClass="img" runat="server" Height="300px" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="3" GridLines="Both">
         <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510"></FooterStyle>
-
         <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White"></HeaderStyle>
-
         <ItemStyle BackColor="#FFF7E7" ForeColor="#8C4510"></ItemStyle>
         <ItemTemplate>
             <div class="picturestuff" runat="server">

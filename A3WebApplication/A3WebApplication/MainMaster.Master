@@ -7,14 +7,14 @@
 <link href="Styles/picturestuff.css" class="img" rel="stylesheet" />
     <title></title>
     
-    <%--  <link href="Styles/style.css" rel="stylesheet" />--%>
+      <link href="Styles/style.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:HyperLink ID="HyperLink1" runat="server">HyperLink</asp:HyperLink>
-        <asp:HyperLink ID="HyperLink2" runat="server">HyperLink</asp:HyperLink>
+        <asp:HyperLink ID="hlProducts" NavigateUrl="~/ProductsPage.aspx" runat="server">Products</asp:HyperLink>
+        <asp:HyperLink ID="hlCategories" NavigateUrl="~/CategoriesPage.aspx" runat="server">Categories</asp:HyperLink>
         <asp:HyperLink ID="hlLoginMeInFam" NavigateUrl="~/Login.aspx" runat="server">Login</asp:HyperLink>
-         <asp:HyperLink ID="hlLogMeOutFam" runat="server">HyperLink</asp:HyperLink>
+         <asp:HyperLink ID="hlLogMeOutFam"  NavigateUrl="~/Login.aspx" runat="server">Login</asp:HyperLink>
         
         <%--      9 MARKS TOTAL
         2 BONUS MARKS TOTAL
