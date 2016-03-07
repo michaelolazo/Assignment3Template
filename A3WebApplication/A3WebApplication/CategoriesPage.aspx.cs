@@ -24,7 +24,7 @@ namespace A3WebApplication
             DAL myd = new DAL(ConfigurationManager.ConnectionStrings["dbA3ConnStr"].ConnectionString);
             dlCategories.DataSource = myd.ExecuteProcedure("spGetCategoryByID");
             dlCategories.DataBind();
-
+            
         }
 
         protected void dlCategories_ItemCommand(object source, DataListCommandEventArgs e)

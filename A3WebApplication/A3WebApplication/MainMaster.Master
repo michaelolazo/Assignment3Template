@@ -11,7 +11,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
+        <asp:HyperLink ID="HyperLink1" runat="server">HyperLink</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink2" runat="server">HyperLink</asp:HyperLink>
+        <asp:HyperLink ID="hlLoginMeInFam" NavigateUrl="~/Login.aspx" runat="server">Login</asp:HyperLink>
+         <asp:HyperLink ID="hlLogMeOutFam" runat="server">HyperLink</asp:HyperLink>
+        
         <%--      9 MARKS TOTAL
         2 BONUS MARKS TOTAL
         TODO:
