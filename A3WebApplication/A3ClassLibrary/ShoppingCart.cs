@@ -74,7 +74,7 @@ namespace A3ClassLibrary
             d.AddParam("OrderDate", date);
             d.AddParam("PricePaid", this.CalculateTotal());
             DataSet ds = d.ExecuteProcedure("spInsertOrder");
-            int orderId = int.Parse(ds.Tables[0].Rows[0]["OrderID"].ToString());
+            int orderId = int.Parse(ds.Tables[0].Rows[0]["orderID"].ToString());
 
             foreach (CartItem item in Cart)
             {

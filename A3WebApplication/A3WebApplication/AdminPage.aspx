@@ -2,16 +2,18 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <br />
+        <asp:Label ID="lblMessage" Font-Size="Larger" Font-Bold="true" Font-Strikeout="true"  Text="" Visible="false" runat="server" />
     <link href="Styles/picturestuff.css" class="img" rel="stylesheet" />
     <asp:GridView ID="gvAdminProducts" CssClass="img" AutoGenerateColumns="false"
         OnRowCommand="gvAdminProducts_RowCommand"
         DataKeyNames="ProductID" OnRowEditing="gvAdminProducts_RowEditing"
         OnRowDeleting="gvAdminProducts_RowDeleting" OnRowCancelingEdit="gvAdminProducts_RowCancelingEdit"
-        OnRowUpdating="gvAdminProducts_RowUpdating" runat="server" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black">
+        OnRowUpdating="gvAdminProducts_RowUpdating" runat="server" BackColor="#CCCCCC" BorderColor="#999999"
+         BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black">
         <Columns>
             <%--            <asp:TemplateField InsertVisible="false" SortExpression="DeleteProduct" />--%>
             <asp:ButtonField CommandName="DeleteProduct" ButtonType="Button" Text="Delete " />
-            <asp:ButtonField CommandName="UpdateProduct" InsertVisible="false" ButtonType="Button" Text="Update " />
+            <asp:ButtonField CommandName="UpdateProducts" InsertVisible="false" ButtonType="Button" Text="Update " />
             <asp:ButtonField CommandName="Edit" ButtonType="Button" Text="Edit " />
             <asp:BoundField DataField="Name" HeaderText="Name" />
             <asp:BoundField DataField="Price" HeaderText="Price" />
@@ -21,24 +23,17 @@
                 DataImageUrlFormatString="images/{0}" ControlStyle-Height="100px" ControlStyle-Width="100px" />
         </Columns>
         <FooterStyle BackColor="#CCCCCC"></FooterStyle>
-
         <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White"></HeaderStyle>
-
         <PagerStyle HorizontalAlign="Left" BackColor="#CCCCCC" ForeColor="Black"></PagerStyle>
-
         <RowStyle BackColor="White"></RowStyle>
-
         <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White"></SelectedRowStyle>
-
         <SortedAscendingCellStyle BackColor="#F1F1F1"></SortedAscendingCellStyle>
-
         <SortedAscendingHeaderStyle BackColor="#808080"></SortedAscendingHeaderStyle>
-
         <SortedDescendingCellStyle BackColor="#CAC9C9"></SortedDescendingCellStyle>
 
         <SortedDescendingHeaderStyle BackColor="#383838"></SortedDescendingHeaderStyle>
     </asp:GridView>
-    <asp:Label ID="lblMessage" Text="" Visible="false" runat="server" />
+
     <%--    17 MARKS TOTAL
     1 BONUS MARK TOTAL
     TODO:  Impliment CRUD operations for Product as an admin.

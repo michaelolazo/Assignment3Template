@@ -26,9 +26,15 @@ namespace A3WebApplication
                 {
                     Response.Redirect("AdminPage.aspx");  // the redirect if customer is able to log into the page as admin 
                 }
-                else  // this checks if custoemr is an admin and if customer is already logged in if returned true redirects to the categories page
+                
+                if(Security.IsCustomerLoggedIn())// this checks if custoemr is an admin and if customer is already logged in if returned true redirects to the categories page
                 {
                     Response.Redirect("CategoriesPage.aspx");
+                }
+                else
+                {
+                    // ERROR, incorrect username and password
+                    lblMessage.Text = "NOOOOO!!!!"; 
                 }
             }
             catch (Exception ex)

@@ -11,20 +11,28 @@ namespace A3WebApplication
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            //if (!Security.IsCustomerLoggedIn())
+            //{
+            //    Response.Redirect("Login.aspx");
+            //}
+            //else if (Security.IsCustomerLoggedIn())
+            //{
+            //    Response.Redirect("CategoriesPage.aspx");
+            //}
+            
             if (Security.IsCustomerLoggedIn())
             {
-                hlLoginMeInFam.Visible = false;
-                hlLogMeOutFam.Visible = true;
-
-
+                btnLogMeOutFam.Visible = true;
             }
-            else if (!Security.IsCustomerLoggedIn())
-            {
-                hlLoginMeInFam.Visible = true;
-                hlLogMeOutFam.Visible = false;
-            }
-            // NOTE: You will need to use the Security Class to determine if logged in or not
+                
+          }
 
+        protected void btnLogMeOutFam_Click(object sender, EventArgs e)
+        {
+            
+            Security.LogOut();
         }
+        // NOTE: You will need to use the Security Class to determine if logged in or not
     }
-}
+    }

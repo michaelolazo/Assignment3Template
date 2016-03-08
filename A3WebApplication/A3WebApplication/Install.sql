@@ -6,6 +6,7 @@ go
 create database dbA3
 go
 use dbA3
+go
 -- TODO: Database
 
 -- Complete these tables (3 marks), 
@@ -41,8 +42,9 @@ CREATE TABLE tbProduct -- there are many products in a single category
 CREATE TABLE tbOrder -- an order happens on a date by a customer
 (			OrderID int identity(1,1) primary key,
 			CustomerID INT FOREIGN KEY REFERENCES tbCustomer(CustomerID),
-			CategoryID INT FOREIGN KEY REFERENCES tbCategory(CategoryID),
-			ProductID INT FOREIGN KEY REFERENCES tbProduct(ProductID)
+						OrderDate DATE, -- move to Order Table -- missing a date
+		--	CategoryID INT FOREIGN KEY REFERENCES tbCategory(CategoryID), -- remove this
+			--ProductID INT FOREIGN KEY REFERENCES tbProduct(ProductID) -- move to OrderDetail
 			/*,
 			PricePaid INT*/
 			-- come back to this later add product name and customer name?
@@ -52,11 +54,10 @@ CREATE TABLE tbOrderDetail -- there can be many details in an order, each detail
 			OrderDetailID int identity(1,1) primary key,
 			PricePaid DECIMAL(10,2),
 			Quantity INT,
-			OrderDate DATE,
 			ProductID int foreign key references tbProduct(ProductID),
-			CustomerID int foreign key references tbCustomer(CustomerID),
-			CategoryID int foreign key references tbCategory(CategoryID),
 			OrderID INT FOREIGN KEY REFERENCES tbOrder(OrderID)
+				--CustomerID int foreign key references tbCustomer(CustomerID), -- remove this, already on Order
+			--CategoryID int foreign key references tbCategory(CategoryID) -- remove this
 )
 INSERT INTO tbCustomer(FirstName,LastName,Address,City,PhoneNumber,UserName,Password,AccessLevel) VALUES
 																													 ('rj','candoy','somewhere on manitoba','WPG','204','rjayop','rjaypassword','0'),
@@ -88,14 +89,18 @@ INSERT INTO tbProduct(Name,Price,PrimaryImagePath,CategoryID)				VALUES('Slime',
 																																	  -- 6 products in category one, 3 products in category two, 1 in category three
 
 
-INSERT INTO tbOrder(CustomerID,ProductID,CategoryID) VALUES(2,10,3),(4,8,2),(1,11,4) -- bestmage(cost 3.00)andrew orders =3,noctowl(cost 400.00)omar orders=2,doug(cost 1.00) josh=4
+INSERT INTO tbOrder(OrderDate,CustomerID) VALUES(CURRENT_TIMESTAMP,1),
+																		(CURRENT_TIMESTAMP,2),
+																		(CURRENT_TIMESTAMP,4)
+																		SELECT * FROM tbOrder
+																														 -- bestmage(cost 3.00)andrew orders =3,noctowl(cost 400.00)omar orders=2,doug(cost 1.00) josh=4
 																																					     -- 3 example orders from the non-admins
 
 
-	INSERT INTO tbOrderDetail(CustomerID,ProductID,CategoryID,Quantity,PricePaid,OrderDate,OrderID) VALUES(3,1,3,1,3,CURRENT_TIMESTAMP,1),
-																																													(2,8,2,3,800.00,CURRENT_TIMESTAMP,2),
-																																													(4,11,4,2,2.00,CURRENT_TIMESTAMP,3)
-
+	INSERT INTO tbOrderDetail(ProductID,Quantity,PricePaid,OrderID) VALUES(3,1,3.00,1),
+																																(2,8,2.00,3),
+																																(4,11,4.00,2)
+																																SELECT * from tbOrderDetail
 	SELECT * FROM tbCustomer
 	SELECT * FROM tbCategory
 	SELECT * FROM tbProduct
@@ -297,7 +302,7 @@ END
 GO 
 CREATE PROC spGetOrderByID
 (
-			@OrderID INT =null
+			@OrderID INT=NULL
 )
 AS BEGIN
 		SELECT * FROM tbOrder
@@ -307,18 +312,12 @@ END
 go
 create proc spInsertOrder  -- come back to this and make another column to order from
 (
-			@PricePaid DECIMAL(10,2),
-			@Quantity INT,
-			@OrderDate DATE,
-			@ProductID INT=NULL,
-			@CustomerID INT=NULL,
-			@CategoryID INT=NULL,
-			@OrderID INT =NULL
+			@OrderID INT ,
+			@CustomerID INT 
 )
 AS  BEGIN
-		INSERT INTO tbOrderDetail(PricePaid,Quantity,OrderDate,ProductID,CustomerID,CategoryID,OrderID)
-		VALUES(@PricePaid,@Quantity,@OrderDate,@ProductID,@CustomerID,@CategoryID,@OrderID)
-		SELECT SCOPE_IDENTITY() AS [OrderID]
+		INSERT INTO tbOrder(OrderID,CustomerID)
+		VALUES(@OrderID,@CustomerID)
 		
 END
 GO
@@ -348,16 +347,14 @@ GO
 CREATE PROC spInsertOrderDetail
 (
 		@Quantity INT,
-		@OrderDate varchar(max),
 		@ProductID INT,
-		@CustomerID INT,
-		@CategoryID INT,
+		@PricePaid DECIMAL(10,2),
 		@OrderID INT
 )
 
 AS BEGIN
-		INSERT INTO tbOrderDetails(Quantity,OrderDate,ProductID,CustomerID,CategoryID,OrderID)
-		VALUES(@Quantity,@OrderDate,@ProductID,@CustomerID,@CategoryID,@OrderID)
+		INSERT INTO tbOrderDetails(PricePaid,Quantity,ProductID,OrderID)
+		VALUES(@PricePaid,@Quantity,@ProductID,@OrderID)
 		SELECT SCOPE_IDENTITY() AS [OrderDetailsID]
 END
 --spDeleteOrderDetail
@@ -376,29 +373,25 @@ CREATE PROC spUpdateOrderDetail
 (
 		@Quantity INT,
 		@PricePaid INT,
-		@OrderDate VARCHAR(MAX),
 		@ProductID INT,
-		@CustomerID INT,
-		@CategoryID INT,
 		@OrderID INT
 )
 
 AS BEGIN
 			UPDATE tbOrderDetail
-			SET Quantity=@Quantity ,PricePaid=@PricePaid,OrderDate=@OrderDate,
-				   ProductID=@ProductID,CustomerID=@CustomerID,CategoryID=@CategoryID,OrderID=@OrderID
+			SET Quantity=@Quantity ,PricePaid=@PricePaid,
+				   ProductID=@ProductID,OrderID=@OrderID
 END
 
 --spGetOrderAndDetailsByOrderID -- Show all Details based on the OrderID
 GO
 CREATE PROC spGetOrderAndDetailsByOrderID
 (
-			@OrderID INT,
 			@OrderDetailID INT
 )
 AS BEGIN
 		SELECT * FROM tbOrderDetail
-		
+		WHERE OrderID=ISNULL(@OrderDetailID,OrderDetailID)
 END
 ---- Create these reports:
 --1. Top 3 Customers for TOTAL spent among all orders

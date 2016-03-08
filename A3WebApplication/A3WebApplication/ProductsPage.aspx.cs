@@ -19,11 +19,20 @@ namespace A3WebApplication
 
             if (!IsPostBack)
             {
-                LoadCats();
-                //LoadCats2(ID);
-                //loadProducts();
+                if (Request.QueryString["CategoryID"] == null)
+                {
+                    
+               loadProducts();
+                    //Add();
+                }
+                else
+                {
+                    LoadCats();
+                }
+
             }
-            
+
+
 
         }
         /* TODO:
@@ -36,36 +45,27 @@ namespace A3WebApplication
             dlProducts.DataSource = Product.GetProductsByCategoryID(CategoryID);
             dlProducts.DataBind();
         }
-        //private void LoadCats2(int ID)
-        //{
-        //    List<Product> p = new List<Product>();
-        //    p = Product.GetProductsByCategoryID(ID);
-        //    dlProducts.DataSource = p;
-        //    dlProducts.DataKeyField = "CategoryID";
-        //    dlProducts.DataBind();
-        //}
         private void loadProducts()
         {
             DAL myd = new DAL(ConfigurationManager.ConnectionStrings["dbA3ConnStr"].ConnectionString);
             dlProducts.DataSource = myd.ExecuteProcedure("spGetProductByID");
             dlProducts.DataBind();
         }
+        //private void Add()
+        //{
+        //    int OrderID = 0;
+        //    int CustomerID = 0;
+        //    DAL myd = new DAL(ConfigurationManager.ConnectionStrings["dbA3ConnStr"].ConnectionString);
+        //    myd.AddParam("OrderID",OrderID);
+        //    myd.AddParam("CustomerID",CustomerID);
+        //    myd.ExecuteProcedure("spInsertOrder");
+        //}
 
         protected void dlProducts_ItemCommand(object source, DataListCommandEventArgs e)
         {
-            
-            int CategoryID = Convert.ToInt32(Request.QueryString["CategoryID"]);
-            lblErrorMessage.Visible = true;
-            lblErrorMessage.Text = "You chose this product with the CategoryID of "+ CategoryID.ToString();
-            //LoadCats();
-            //dlProducts.SelectedIndex = Convert.ToInt32(e.CommandArgument.ToString());
-
-            /* TODO: 
-                - 1 MARK:  get the right ProductID based on which product was clicked
-                - BONUS 1 MARK:  get the quantity from the drop down if you made one
-                - 1 MARK: Use the SessionCart's Instance to add a new Cart Item to the ShoppingCart and redirect to the CartPage
-            */
-            //Response.Redirect("ProductsPage.aspx?CategoryID=" + e.CommandArgument);
+            int productID = Convert.ToInt32(e.CommandArgument);
+            SessionCart.Instance.AddToCart(productID, 1);
+            Response.Redirect("CartPage.aspx");
         }
 
     }

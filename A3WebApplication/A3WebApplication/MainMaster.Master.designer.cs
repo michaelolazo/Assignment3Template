@@ -40,6 +40,15 @@ namespace A3WebApplication {
         protected global::System.Web.UI.WebControls.HyperLink hlCart;
         
         /// <summary>
+        /// hlAdmin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlAdmin;
+        
+        /// <summary>
         /// hlCategories control.
         /// </summary>
         /// <remarks>
@@ -58,13 +67,22 @@ namespace A3WebApplication {
         protected global::System.Web.UI.WebControls.HyperLink hlLoginMeInFam;
         
         /// <summary>
-        /// hlLogMeOutFam control.
+        /// btnLogMeOutFam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlLogMeOutFam;
+        protected global::System.Web.UI.WebControls.Button btnLogMeOutFam;
+        
+        /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
         
         /// <summary>
         /// ContentPlaceHolderMain control.

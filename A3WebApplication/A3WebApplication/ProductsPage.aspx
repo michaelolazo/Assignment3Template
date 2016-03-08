@@ -13,7 +13,7 @@
             <b>CategoryID</b> <%#Eval("CategoryID") %>
             <asp:Image runat="server"
                 ImageUrl='<%# "Images/" + Eval("PrimaryImagePath") %>' Height="150" Width="200" /><br />
-            <asp:Button ID="btnAddtoCart"  Text="Add To Cart" runat="server" />
+            <asp:Button ID="btnAddtoCart"  Text="Add To Cart" runat="server" CommandName="add"   CommandArgument='<%#Eval("ProductID") %>'  />
             </div>
         </ItemTemplate>
     </asp:DataList>

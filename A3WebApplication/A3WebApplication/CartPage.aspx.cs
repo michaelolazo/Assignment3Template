@@ -22,10 +22,64 @@ namespace A3WebApplication
 
         private void loadStuffs()
         {
-            DAL myd = new DAL(ConfigurationManager.ConnectionStrings["dbA3ConnStr"].ConnectionString);
+            gvCart.DataSource = SessionCart.Instance.Cart;
+            dlCartFam.DataSource = SessionCart.Instance.Cart;
+            dlCartFam.DataBind();
+            gvCart.DataBind();
 
-            //gvCart.DataSource = myd.ExecuteProcedure("spGetOrderDetailByID");
-            //gvCart.DataBind();
+        }
+
+        protected void gvCart_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            
+            //gvCart.RowDeleting
+            loadStuffs();
+        }
+
+        protected void gvCart_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            gvCart.EditIndex = e.NewEditIndex;
+            loadStuffs();   
+        }
+
+        protected void gvCart_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+
+        }
+
+        protected void gvCart_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            //gvCart.EditIndex = -1;
+            loadStuffs();
+        }
+
+        protected void gvCart_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            gvCart.SelectedIndex = Convert.ToInt32(e.CommandArgument);
+            int ProductID = Convert.ToInt32(gvCart.SelectedValue);
+            int Quantity = 0;
+            switch (e.CommandName)
+            {
+                case "Delete":
+                    SessionCart.Instance.RemoveCartItem(ProductID);
+                    //(ProductID);
+                    break;
+                case "Update":
+                    SessionCart.Instance.UpdateCartItem(ProductID, Quantity);
+                    //(ProductID);
+                    break;
+                default:
+                    break;
+            }
+            gvCart.DataBind();
+            dlCartFam.DataBind();
+        }
+
+        protected void btnClearCart_Click(object sender, EventArgs e)
+        {
+            SessionCart.AbandonCart();
+            dlCartFam.DataBind();
+            gvCart.DataBind();
         }
     }
 }

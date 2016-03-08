@@ -69,6 +69,12 @@ namespace A3ClassLibrary
         public void InsertProduct()
         {
             DAL myd = new DAL(ConfigurationManager.ConnectionStrings["dbA3ConnStr"].ConnectionString);
+            myd.AddParam("ProductID", this.ProductID);
+            myd.AddParam("CategoryID",this.CategoryID);
+            myd.AddParam("Name", this.Name);
+            myd.AddParam("Price",this.Price);
+            myd.AddParam("PrimaryImagePath", this.PrimaryImagePath);
+            myd.ExecuteProcedure("InsertProduct");
         }
         // 2 MARKS: write a method which impliments spDeleteProduct
         public void DeleteProduct()

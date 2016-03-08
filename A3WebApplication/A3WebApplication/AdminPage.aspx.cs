@@ -19,6 +19,7 @@ namespace A3WebApplication
             if (!IsPostBack)
             {
                 LoadProducts();
+
             }
         }
 
@@ -44,8 +45,15 @@ namespace A3WebApplication
                 case "DeleteProduct":
                     gvAdminProducts.SelectedIndex = Convert.ToInt32(e.CommandArgument.ToString());
                     string ProductID = gvAdminProducts.SelectedValue.ToString();
-                    DeleteProduct(ProductID);
-                    LoadProducts();  // can delete all but the categories
+                    try
+                    {
+                        DeleteProduct(ProductID);
+                    }
+                    catch (Exception d)
+                    {
+                        lblMessage.Visible = true;
+                        lblMessage.Text = "Cannot delete FK";
+                    }
                     break;
                 case "UpdateProducts":
                     gvAdminProducts.SelectedIndex = Convert.ToInt32(e.CommandArgument.ToString());
@@ -54,8 +62,8 @@ namespace A3WebApplication
                     break;
                 default:
                     break;
-                    
             }
+            LoadProducts();
         }
 
         private void DeleteProduct(string ProductID)
@@ -69,6 +77,11 @@ namespace A3WebApplication
         {
             Product Pebor = new Product();
             Pebor.ProductID = Convert.ToInt32(ProductID);
+            Pebor.Name = ((TextBox)gvAdminProducts.SelectedRow.Cells[3].Controls[0]).Text;
+            Pebor.Price = Convert.ToDouble(((TextBox)gvAdminProducts.SelectedRow.Cells[4].Controls[0]).Text);
+            Pebor.ProductID = Convert.ToInt32(((TextBox)gvAdminProducts.SelectedRow.Cells[5].Controls[0]).Text);
+            Pebor.PrimaryImagePath = ((TextBox)gvAdminProducts.SelectedRow.Cells[6].Controls[0]).Text;
+            // youre missing stuff here.
             Pebor.UpdateProduct();
             LoadProducts();
         }
@@ -82,12 +95,12 @@ namespace A3WebApplication
         protected void gvAdminProducts_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             int Index = gvAdminProducts.EditIndex;
-            GridViewRow row = gvAdminProducts.Rows[Index];
-            TextBox nameb = row.FindControl("tbName") as TextBox;
-            TextBox priceb = row.FindControl("tbPrice") as TextBox;
-            TextBox cateb = row.FindControl("tbCategoryID") as TextBox;
-            string t = gvAdminProducts.DataKeys[e.RowIndex].Value.ToString();
-            lblMessage.Text = "You changed " + nameb.ToString() + priceb.ToString() + cateb.ToString() + " Good Job.";
+            //GridViewRow row = gvAdminProducts.Rows[Index];
+            //TextBox nameb = row.FindControl("tbName") as TextBox;
+            //TextBox priceb = row.FindControl("tbPrice") as TextBox;
+            //TextBox cateb = row.FindControl("tbCategoryID") as TextBox;
+            //string t = gvAdminProducts.DataKeys[e.RowIndex].Value.ToString();
+            //lblMessage.Text = "You changed " + nameb.ToString() + priceb.ToString() + cateb.ToString() + " Good Job.";
             Product Pebor = new Product();
             Pebor.UpdateProduct();
             LoadProducts();

@@ -12,9 +12,12 @@
     <form id="form1" runat="server">
         <asp:HyperLink ID="hlProducts" NavigateUrl="~/ProductsPage.aspx" runat="server">Products</asp:HyperLink>
         <asp:HyperLink ID="hlCart" NavigateUrl="~/CartPage.aspx" runat="server">Cart</asp:HyperLink>
+        <asp:HyperLink ID="hlAdmin" NavigateUrl="~/AdminPage.aspx" runat="server" >Admin</asp:HyperLink>
         <asp:HyperLink ID="hlCategories" NavigateUrl="~/CategoriesPage.aspx" runat="server">Categories</asp:HyperLink>
         <asp:HyperLink ID="hlLoginMeInFam" NavigateUrl="~/Login.aspx" runat="server">Login</asp:HyperLink>
-         <asp:HyperLink ID="hlLogMeOutFam"  NavigateUrl="~/Login.aspx" runat="server">Login</asp:HyperLink>
+        <asp:Button ID="btnLogMeOutFam" OnClick="btnLogMeOutFam_Click" Visible="false" runat="server" Text="Logout" />
+        <br />
+        <asp:Label ID="lblMessage" runat="server" Visible="false" Text=""></asp:Label>
         
         <%--      9 MARKS TOTAL
         2 BONUS MARKS TOTAL

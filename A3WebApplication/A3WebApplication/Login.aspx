@@ -1,10 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MainMaster.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="A3WebApplication.Login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderMain" runat="server">
     <asp:Panel ID="pnlLogin" runat="server">
-      UserName: <asp:TextBox ID="tbUsername" runat="server"></asp:TextBox>
-      Password: <asp:TextBox ID="tbPassword" runat="server"></asp:TextBox>
+      UserName: <asp:TextBox ID="tbUsername" Required="true" runat="server"></asp:TextBox>     
+      Password: <asp:TextBox ID="tbPassword" Required="true" runat="server"></asp:TextBox>      
        <br /> <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click"/><br />
-        <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
+        <asp:Label ID="lblMessage" Visible="false" runat="server" Text=""></asp:Label>
     </asp:Panel>
 <%--    7 MARKS TOTAL
     TODO: 
