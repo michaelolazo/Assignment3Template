@@ -28,10 +28,17 @@ namespace A3ClassLibrary
         // BONUS 1 MARK: write method which impliments spDeleteCategory
         private void DeleteCategory()
         {
+            DAL myd = new DAL(ConfigurationManager.ConnectionStrings["dbA3ConnStr"].ConnectionString);
+            myd.AddParam("CategoryID", this.CategoryID);
+            myd.ExecuteProcedure("spDeleteCategory");
         }
         // BONUS 1 MARK: write method which impliments spUpdateCategory
         private void UpdateCategory()
         {
+            DAL myd = new DAL(ConfigurationManager.ConnectionStrings["dbA3ConnStr"].ConnectionString);
+            myd.AddParam("CategoryID", this.CategoryID);
+            myd.AddParam("Name", this.Name);
+            myd.AddParam("ImagePath", ImagePath);
         }
         public static List<Category> GetAllCategories()
         {

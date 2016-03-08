@@ -395,5 +395,12 @@ AS BEGIN
 END
 ---- Create these reports:
 --1. Top 3 Customers for TOTAL spent among all orders
+
 --2. Show each category and how many products are available in each
+
+select tbCategory.Name, COUNT(tbProduct.CategoryID)
+ as 'Total Count'
+ from tbCategory full join tbProduct on
+ tbCategory.CategoryID = tbProduct.CategoryID
+ group by tbCategory.Name
 --3. Show the products listed by total amount paid (take into consideration quantity & price)
